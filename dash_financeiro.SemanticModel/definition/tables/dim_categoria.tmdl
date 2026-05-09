@@ -3,6 +3,7 @@ table dim_categoria
 
 	column id_categoria
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: f5e67a3c-9cba-4b59-9a89-6731ac4db91b
 		summarizeBy: none
@@ -20,6 +21,7 @@ table dim_categoria
 
 	column tipo_padrao
 		dataType: string
+		isHidden
 		lineageTag: 2f076d8b-2bf5-458d-be99-566518236005
 		summarizeBy: none
 		sourceColumn: tipo_padrao

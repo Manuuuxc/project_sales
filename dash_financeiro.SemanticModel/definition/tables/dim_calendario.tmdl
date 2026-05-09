@@ -1,16 +1,21 @@
 table dim_calendario
 	lineageTag: 1cef096e-ab88-4740-8ef2-b28f7c032660
 
-	column Date
-		formatString: Short Date
+	column Data
+		dataType: dateTime
+		isKey
+		formatString: dd/mm/yyyy
 		lineageTag: 892fc4dd-cf0d-4dc8-97d5-3a46dc80e011
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [Date]
+		sourceColumn: [Data]
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column Ano
+		dataType: int64
 		formatString: 0
 		lineageTag: 1fea1f06-85ca-4583-a8e0-b2f08fbac5c6
 		summarizeBy: none
@@ -19,42 +24,50 @@ table dim_calendario
 
 		annotation SummarizationSetBy = Automatic
 
-	column MesNumero
+	column 'Mes Numero'
+		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: b95e44e4-670d-47ed-93b2-e0d5c283ba7f
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [MesNumero]
+		sourceColumn: [Mes Numero]
 
 		annotation SummarizationSetBy = Automatic
 
-	column MesNome
+	column 'Mes Nome'
+		dataType: string
 		lineageTag: be276643-601b-41e8-8a4c-d2a05a56eaab
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [MesNome]
-		sortByColumn: MesNumero
+		sourceColumn: [Mes Nome]
+		sortByColumn: 'Mes Numero'
 
 		annotation SummarizationSetBy = Automatic
 
-	column MesAno
+	column 'Ano Mes'
+		dataType: string
 		lineageTag: 30b96938-fc36-4c90-a8c9-a5ccffb070f5
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [MesAno]
+		sourceColumn: [Ano Mes]
+		sortByColumn: 'Ordem Ano Mes'
 
 		annotation SummarizationSetBy = Automatic
 
-	column AnoMes
+	column 'Ordem Ano Mes'
+		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: f34bf782-e7c8-4ec5-898e-5d55e408bad4
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [AnoMes]
+		sourceColumn: [Ordem Ano Mes]
 
 		annotation SummarizationSetBy = Automatic
 
 	column Trimestre
+		dataType: string
 		lineageTag: ea1d5d0f-6e20-4e0d-99f2-fa86157281b8
 		summarizeBy: none
 		isNameInferred
@@ -62,15 +75,8 @@ table dim_calendario
 
 		annotation SummarizationSetBy = Automatic
 
-	column AnoTrimestre
-		lineageTag: 05f51224-cf46-47a5-aae4-38cf18177fc3
-		summarizeBy: none
-		isNameInferred
-		sourceColumn: [AnoTrimestre]
-
-		annotation SummarizationSetBy = Automatic
-
 	column Dia
+		dataType: int64
 		formatString: 0
 		lineageTag: 9d9a2c45-5931-4f11-a007-bcc2f2acfd07
 		summarizeBy: none
@@ -79,57 +85,57 @@ table dim_calendario
 
 		annotation SummarizationSetBy = Automatic
 
-	column DiaSemanaNumero
+	column 'Dia da Semana'
+		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: a2be5967-9480-4dc0-a9fc-4fac0587c991
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [DiaSemanaNumero]
+		sourceColumn: [Dia da Semana]
 
 		annotation SummarizationSetBy = Automatic
 
-	column DiaSemanaNome
+	column 'Nome do Dia da Semana'
+		dataType: string
 		lineageTag: 8cbfd05e-6041-41da-bdcf-99034e60ccaf
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [DiaSemanaNome]
-		sortByColumn: DiaSemanaNumero
+		sourceColumn: [Nome do Dia da Semana]
+		sortByColumn: 'Dia da Semana'
 
 		annotation SummarizationSetBy = Automatic
 
-	column SemanaAno
-		formatString: 0
-		lineageTag: 65935e29-bd00-4347-9d60-fd66a95eb0c2
-		summarizeBy: none
-		isNameInferred
-		sourceColumn: [SemanaAno]
-
-		annotation SummarizationSetBy = Automatic
-
-	column FimDeSemana
-		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 91dc560c-8ece-4266-bf81-79c866e30e60
-		summarizeBy: none
-		isNameInferred
-		sourceColumn: [FimDeSemana]
-
-		annotation SummarizationSetBy = Automatic
-
-	column InicioDoMes
-		formatString: General Date
+	column 'Inicio do Mes'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
 		lineageTag: 8977eb2e-4bb4-4c8a-a3cf-91c4d972c364
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [InicioDoMes]
+		sourceColumn: [Inicio do Mes]
 
 		annotation SummarizationSetBy = Automatic
 
-	column FimDoMes
-		formatString: General Date
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fim do Mes'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
 		lineageTag: 519203be-34e2-4af6-8672-209a43428b7f
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [FimDoMes]
+		sourceColumn: [Fim do Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Semestre
+		dataType: string
+		lineageTag: 6b66ccfe-f691-4baa-a109-ec3c13a2fd8a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Semestre]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -137,31 +143,53 @@ table dim_calendario
 		mode: import
 		source = ```
 				
-				VAR DataMin = DATE(2023,1,1)
-				VAR DataMax = DATE(2025,12,31)
+				VAR DataMinFonte =
+				    MINX (
+				        ALL ( fat_lancamentos_financeiros ),
+				        fat_lancamentos_financeiros[data_lancamento]
+				    )
+				VAR DataMaxFonte =
+				    MAXX (
+				        ALL ( fat_lancamentos_financeiros ),
+				        fat_lancamentos_financeiros[data_lancamento]
+				    )
+				VAR DataMin =
+				    DATE ( YEAR ( COALESCE ( DataMinFonte, DATE ( 2023, 1, 1 ) ) ), 1, 1 )
+				VAR DataMax =
+				    DATE ( YEAR ( COALESCE ( DataMaxFonte, DATE ( 2025, 12, 31 ) ) ), 12, 31 )
+				VAR Base =
+				    CALENDAR ( DataMin, DataMax )
 				RETURN
-				ADDCOLUMNS (
-				    CALENDAR ( DataMin, DataMax ),
-				    
-				    "Ano", YEAR ( [Date] ),
-				    "MesNumero", MONTH ( [Date] ),
-				    "MesNome", FORMAT ( [Date], "MMMM" ),
-				    "MesAno", FORMAT ( [Date], "MMM/YYYY" ),
-				    "AnoMes", YEAR([Date]) * 100 + MONTH([Date]),
-				    
-				    "Trimestre", "T" & FORMAT ( [Date], "Q" ),
-				    "AnoTrimestre", YEAR([Date]) & "-T" & FORMAT([Date], "Q"),
-				
-				    "Dia", DAY ( [Date] ),
-				    "DiaSemanaNumero", WEEKDAY ( [Date], 2 ),         -- 1=Segunda, 7=Domingo
-				    "DiaSemanaNome", FORMAT ( [Date], "dddd" ),
-				
-				    "SemanaAno", WEEKNUM ( [Date], 2 ),
-				    "FimDeSemana", IF ( WEEKDAY ( [Date], 2 ) >= 6, TRUE(), FALSE() ),
-				
-				    "InicioDoMes", DATE ( YEAR ( [Date] ), MONTH ( [Date] ), 1 ),
-				    "FimDoMes", EOMONTH ( [Date], 0 )
-				)
+				    SELECTCOLUMNS (
+				        ADDCOLUMNS (
+				            Base,
+				            "Ano", YEAR ( [Date] ),
+				            "Mes Numero", MONTH ( [Date] ),
+				            "Mes Nome", FORMAT ( [Date], "mmmm" ),
+				            "Ano Mes", FORMAT ( [Date], "MMM/yyyy" ),
+				            "Trimestre", "T" & FORMAT ( [Date], "Q" ),
+				            "Semestre", IF ( MONTH ( [Date] ) <= 6, "S1", "S2" ),
+				            "Inicio do Mes", DATE ( YEAR ( [Date] ), MONTH ( [Date] ), 1 ),
+				            "Fim do Mes", EOMONTH ( [Date], 0 ),
+				            "Dia", DAY ( [Date] ),
+				            "Dia da Semana", WEEKDAY ( [Date], 2 ),
+				            "Nome do Dia da Semana", FORMAT ( [Date], "dddd" ),
+				            "Ordem Ano Mes", YEAR ( [Date] ) * 100 + MONTH ( [Date] )
+				        ),
+				        "Data", [Date],
+				        "Ano", [Ano],
+				        "Mes Numero", [Mes Numero],
+				        "Mes Nome", [Mes Nome],
+				        "Ano Mes", [Ano Mes],
+				        "Trimestre", [Trimestre],
+				        "Semestre", [Semestre],
+				        "Inicio do Mes", [Inicio do Mes],
+				        "Fim do Mes", [Fim do Mes],
+				        "Dia", [Dia],
+				        "Dia da Semana", [Dia da Semana],
+				        "Nome do Dia da Semana", [Nome do Dia da Semana],
+				        "Ordem Ano Mes", [Ordem Ano Mes]
+				    )
 				
 				```
 

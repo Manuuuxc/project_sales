@@ -3,9 +3,10 @@ table fat_lancamentos_financeiros
 
 	column id
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 300f4da9-3a7d-457b-aaf4-744668183af9
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: id
 
 		annotation SummarizationSetBy = Automatic
@@ -28,6 +29,7 @@ table fat_lancamentos_financeiros
 
 	column categoria
 		dataType: string
+		isHidden
 		lineageTag: 3f714824-96b9-495c-9307-357a36ea04fb
 		summarizeBy: none
 		sourceColumn: categoria
@@ -36,7 +38,7 @@ table fat_lancamentos_financeiros
 
 	column valor
 		dataType: double
-		formatString: 0.00
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
 		lineageTag: 21a5a881-7e68-4100-b13d-69828a71b5d1
 		summarizeBy: sum
 		sourceColumn: valor
@@ -45,7 +47,7 @@ table fat_lancamentos_financeiros
 
 	column data_lancamento
 		dataType: dateTime
-		formatString: Short Date
+		formatString: dd/mm/yyyy
 		lineageTag: 220dd627-9a2c-4a9e-8eb5-f07fd17186ca
 		summarizeBy: none
 		sourceColumn: data_lancamento
@@ -56,6 +58,7 @@ table fat_lancamentos_financeiros
 
 	column forma_pagamento
 		dataType: string
+		isHidden
 		lineageTag: 7738d37c-8fb3-49bf-adf0-292eed3a268e
 		summarizeBy: none
 		sourceColumn: forma_pagamento
@@ -72,6 +75,7 @@ table fat_lancamentos_financeiros
 
 	column criado_em
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: c0417764-8e7b-424d-8b92-a6e65880f7a7
 		summarizeBy: none

@@ -1,86 +1,336 @@
 table medidas
 	lineageTag: f7632a55-01ca-4e5f-88f6-3e1d77124588
 
-	measure qtd_receita = ```
+	measure 'Receita Total' = ```
 			
-			    CALCULATE
-			            (SUM
-			                (fat_lancamentos_financeiros[valor]), fat_lancamentos_financeiros[tipo] = "RECEITA")
+			VAR Receita =
+			    CALCULATE (
+			        SUM ( fat_lancamentos_financeiros[valor] ),
+			        KEEPFILTERS ( fat_lancamentos_financeiros[tipo] = "RECEITA" )
+			    )
+			RETURN
+			    COALESCE ( Receita, 0 )
+			
 			```
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 01 Base
 		lineageTag: db8ebaf4-b1de-448c-9d10-a49dc074e7f1
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure qtd_despesa = ```
+	measure 'Despesa Total' = ```
 			
-			    CALCULATE
-			            (SUM
-			                (fat_lancamentos_financeiros[valor]), fat_lancamentos_financeiros[tipo] = "DESPESA")
+			VAR Despesa =
+			    CALCULATE (
+			        SUM ( fat_lancamentos_financeiros[valor] ),
+			        KEEPFILTERS ( fat_lancamentos_financeiros[tipo] = "DESPESA" )
+			    )
+			RETURN
+			    COALESCE ( Despesa, 0 )
+			
 			```
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 01 Base
 		lineageTag: 7ecb3610-a39a-4093-931d-ab49894006e5
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure vlr_lb = [qtd_receita] - [qtd_despesa]
+	measure Resultado = [Receita Total] - [Despesa Total]
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 01 Base
 		lineageTag: c0cfd5d2-3d7e-4c89-b986-ba1e5fbfec46
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure %_margem_lb = ```
-			
-			 DIVIDE
-			        ([vlr_lb],[qtd_receita],0)
-			
-			```
-		formatString: 0.00%;-0.00%;0.00%
+	measure 'Margem de Resultado %' = DIVIDE ( [Resultado], [Receita Total] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 01 Base
 		lineageTag: 77b6dc56-73f6-4669-bde4-44a7950dff2e
 
-	measure %_receita = ```
+	measure '% Receita por Categoria' = ```
 			
-			DIVIDE(
-			    [qtd_receita],
-			    CALCULATE(
-			        [qtd_receita],
-			        ALL(dim_forma_pagamento)
-			    )
+			DIVIDE (
+			    [Receita Total],
+			    CALCULATE ( [Receita Total], REMOVEFILTERS ( dim_categoria ) )
 			)
 			
 			```
-		formatString: 0.00%;-0.00%;0.00%
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 03 Participacao
 		lineageTag: 340abe5d-b83d-4cc0-82de-dd968547142d
 
-	measure qtd_receita_YTD = ```
+	measure 'Receita Mes Anterior' = ```
 			
-			CALCULATE(
-			    [qtd_receita],
-			    DATESYTD(dim_calendario[Date])
+			CALCULATE (
+			    [Receita Total],
+			    DATEADD ( dim_calendario[Data], -1, MONTH )
 			)
 			
 			```
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
 		lineageTag: 070db358-1830-4318-92e0-4d849a9d986a
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure qtd_despesa_YTD = ```
+	measure 'Despesa Mes Anterior' = ```
 			
-			CALCULATE(
-			    [qtd_despesa],
-			    DATESYTD(dim_calendario[Date])
+			CALCULATE (
+			    [Despesa Total],
+			    DATEADD ( dim_calendario[Data], -1, MONTH )
 			)
 			
 			```
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
 		lineageTag: f1f2539f-24f8-45bb-83bb-dbd0dafd90fc
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure qtd_saldo_YTD = ```
-			
-			[qtd_receita_YTD] - [qtd_despesa_YTD]
-			
-			```
+	measure 'Resultado Mes Anterior' = [Receita Mes Anterior] - [Despesa Mes Anterior]
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
 		lineageTag: 6f6bee33-2796-4395-a41e-b4629f4f9707
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+	measure Saldo = [Resultado]
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 01 Base
+		lineageTag: 08c11ac7-611d-4e1a-9b53-f0d7bda41c11
+
+	measure 'Total de Lancamentos' = COUNTROWS ( fat_lancamentos_financeiros )
+		formatString: #,##0
+		displayFolder: 01 Base
+		lineageTag: d9f2e3c0-5f9f-46bc-8c80-3f3f9ad9d001
+
+	measure 'Lancamentos de Receita' = ```
+			
+			CALCULATE (
+			    [Total de Lancamentos],
+			    KEEPFILTERS ( fat_lancamentos_financeiros[tipo] = "RECEITA" )
+			)
+			
+			```
+		formatString: #,##0
+		isHidden
+		displayFolder: 00 Auxiliares
+		lineageTag: 7f92c12e-9ca2-4d1e-bf86-093d7d2d9e02
+
+	measure 'Lancamentos de Despesa' = ```
+			
+			CALCULATE (
+			    [Total de Lancamentos],
+			    KEEPFILTERS ( fat_lancamentos_financeiros[tipo] = "DESPESA" )
+			)
+			
+			```
+		formatString: #,##0
+		isHidden
+		displayFolder: 00 Auxiliares
+		lineageTag: c3494224-b60f-4d7b-96f0-5ba22ee0977d
+
+	measure 'Ticket Medio' = DIVIDE ( [Receita Total], [Lancamentos de Receita] )
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 01 Base
+		lineageTag: 07716641-3148-4586-a577-9868de130e0b
+
+	measure 'Valor Medio por Lancamento' = DIVIDE ( [Receita Total] + [Despesa Total], [Total de Lancamentos] )
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 01 Base
+		lineageTag: 988fbadb-1be3-440c-89ed-4f6e487e9b9f
+
+	measure 'Variacao Receita vs Mes Anterior' = [Receita Total] - [Receita Mes Anterior]
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
+		lineageTag: a1925e67-75a5-4f36-a034-1d8b5838246b
+
+	measure 'Variacao Receita % vs Mes Anterior' = DIVIDE ( [Variacao Receita vs Mes Anterior], [Receita Mes Anterior] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 02 Temporal
+		lineageTag: 40b068ab-fbd5-4a34-a1ea-4ce4c4d06665
+
+	measure 'Variacao Despesa vs Mes Anterior' = [Despesa Total] - [Despesa Mes Anterior]
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
+		lineageTag: 7ed00aec-a0e0-46d5-8355-f2a4130b3f61
+
+	measure 'Variacao Despesa % vs Mes Anterior' = DIVIDE ( [Variacao Despesa vs Mes Anterior], [Despesa Mes Anterior] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 02 Temporal
+		lineageTag: 61fbbd87-5c41-485d-b643-d4be6e76c661
+
+	measure 'Variacao Resultado vs Mes Anterior' = [Resultado] - [Resultado Mes Anterior]
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
+		lineageTag: 8ac717d3-0b0f-44db-b165-59a47759c4ab
+
+	measure 'Variacao Resultado % vs Mes Anterior' = DIVIDE ( [Variacao Resultado vs Mes Anterior], [Resultado Mes Anterior] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 02 Temporal
+		lineageTag: e99f2e4f-343b-484d-8702-7e7441a6f03b
+
+	measure 'Receita Acumulada' = ```
+			
+			VAR DataAtual = MAX ( dim_calendario[Data] )
+			RETURN
+			    CALCULATE (
+			        [Receita Total],
+			        FILTER (
+			            ALLSELECTED ( dim_calendario[Data] ),
+			            dim_calendario[Data] <= DataAtual
+			        )
+			    )
+			
+			```
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
+		lineageTag: 4b43b02b-1748-4f87-b1de-a5a9b15c6ac3
+
+	measure 'Despesa Acumulada' = ```
+			
+			VAR DataAtual = MAX ( dim_calendario[Data] )
+			RETURN
+			    CALCULATE (
+			        [Despesa Total],
+			        FILTER (
+			            ALLSELECTED ( dim_calendario[Data] ),
+			            dim_calendario[Data] <= DataAtual
+			        )
+			    )
+			
+			```
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
+		lineageTag: f862d106-87f7-4352-8e75-010d9fa1829f
+
+	measure 'Resultado Acumulado' = [Receita Acumulada] - [Despesa Acumulada]
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
+		lineageTag: c89d0f97-2600-4f1d-b12c-cb18d93a7d97
+
+	measure 'Receita YTD' = ```
+			
+			TOTALYTD (
+			    [Receita Total],
+			    dim_calendario[Data]
+			)
+			
+			```
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
+		lineageTag: d12e42f8-4e35-4d8d-8c38-e434ff256a2c
+
+	measure 'Despesa YTD' = ```
+			
+			TOTALYTD (
+			    [Despesa Total],
+			    dim_calendario[Data]
+			)
+			
+			```
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
+		lineageTag: 8fd7c447-3202-4fdb-b94b-02c782fd20b2
+
+	measure 'Resultado YTD' = [Receita YTD] - [Despesa YTD]
+		formatString: R$ #,##0.00;-R$ #,##0.00;R$ #,##0.00
+		displayFolder: 02 Temporal
+		lineageTag: 95fd63e0-bdf4-413d-94ee-b8e1b61ea238
+
+	measure '% Despesa por Categoria' = ```
+			
+			DIVIDE (
+			    [Despesa Total],
+			    CALCULATE ( [Despesa Total], REMOVEFILTERS ( dim_categoria ) )
+			)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 03 Participacao
+		lineageTag: 601a1b59-4054-4023-8136-44c8ded9f9d0
+
+	measure '% Receita por Forma de Pagamento' = ```
+			
+			DIVIDE (
+			    [Receita Total],
+			    CALCULATE ( [Receita Total], REMOVEFILTERS ( dim_forma_pagamento ) )
+			)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 03 Participacao
+		lineageTag: 6f7431b6-1fd2-45bd-b6cf-1c9560061f63
+
+	measure '% Despesa por Forma de Pagamento' = ```
+			
+			DIVIDE (
+			    [Despesa Total],
+			    CALCULATE ( [Despesa Total], REMOVEFILTERS ( dim_forma_pagamento ) )
+			)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 03 Participacao
+		lineageTag: f19cb6d4-55e6-478c-a56c-70b753ca6c08
+
+	measure 'Indicador Resultado Positivo/Negativo' = ```
+			
+			IF (
+			    [Resultado] >= 0,
+			    "Positivo",
+			    "Negativo"
+			)
+			
+			```
+		displayFolder: 04 Indicadores
+		lineageTag: 5d318810-8781-41fb-afba-a213a89b5a47
+
+	measure 'Cor Resultado' = IF ( [Resultado] >= 0, "#22C55E", "#EF4444" )
+		displayFolder: 04 Indicadores
+		lineageTag: 5e16958b-2d9a-4c82-8fa9-59fb8c1024ba
+
+	measure 'Cor Variacao Receita' = IF ( [Variacao Receita vs Mes Anterior] >= 0, "#22C55E", "#EF4444" )
+		displayFolder: 04 Indicadores
+		lineageTag: 1fe11dc7-bd40-4e88-a147-4ff7320c04ca
+
+	measure 'Cor Variacao Despesa' = IF ( [Variacao Despesa vs Mes Anterior] <= 0, "#22C55E", "#EF4444" )
+		displayFolder: 04 Indicadores
+		lineageTag: 5470ee7d-58d9-4bd1-93d2-7a0259bca1dc
+
+	measure 'Cor Variacao Resultado' = IF ( [Variacao Resultado vs Mes Anterior] >= 0, "#22C55E", "#EF4444" )
+		displayFolder: 04 Indicadores
+		lineageTag: c924b0d9-5320-4c0c-9365-f2247f2f8719
+
+	measure 'Texto Variacao Receita' = ```
+			
+			VAR Variacao = [Variacao Receita % vs Mes Anterior]
+			RETURN
+			    IF (
+			        ISBLANK ( Variacao ),
+			        "Sem base comparativa",
+			        FORMAT ( Variacao, "+0.0%;-0.0%;0.0%" ) & " vs mes anterior"
+			    )
+			
+			```
+		displayFolder: 04 Indicadores
+		lineageTag: 95543dbd-8dcb-4512-807f-1ffec32dc3a3
+
+	measure 'Texto Variacao Despesa' = ```
+			
+			VAR Variacao = [Variacao Despesa % vs Mes Anterior]
+			RETURN
+			    IF (
+			        ISBLANK ( Variacao ),
+			        "Sem base comparativa",
+			        FORMAT ( Variacao, "+0.0%;-0.0%;0.0%" ) & " vs mes anterior"
+			    )
+			
+			```
+		displayFolder: 04 Indicadores
+		lineageTag: 35182528-35f4-4c7f-b024-62b952e487c8
+
+	measure 'Texto Variacao Resultado' = ```
+			
+			VAR Variacao = [Variacao Resultado % vs Mes Anterior]
+			RETURN
+			    IF (
+			        ISBLANK ( Variacao ),
+			        "Sem base comparativa",
+			        FORMAT ( Variacao, "+0.0%;-0.0%;0.0%" ) & " vs mes anterior"
+			    )
+			
+			```
+		displayFolder: 04 Indicadores
+		lineageTag: d9a2b610-f159-4d33-8026-c154edec9344
 
 	column Column
 		isHidden

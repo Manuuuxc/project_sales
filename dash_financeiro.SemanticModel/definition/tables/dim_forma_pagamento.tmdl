@@ -3,6 +3,7 @@ table dim_forma_pagamento
 
 	column id_forma_pagamento
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 82dbe771-e296-4594-82bd-bd2b73fb9f48
 		summarizeBy: none
@@ -20,6 +21,7 @@ table dim_forma_pagamento
 
 	column descricao
 		dataType: string
+		isHidden
 		lineageTag: 25be097a-1c44-43a4-94fd-fcd5596c1e4e
 		summarizeBy: none
 		sourceColumn: descricao
@@ -28,6 +30,7 @@ table dim_forma_pagamento
 
 	column ativo
 		dataType: boolean
+		isHidden
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: fb5ee495-4aeb-4402-8df6-9e5133dcca71
 		summarizeBy: none
@@ -37,6 +40,7 @@ table dim_forma_pagamento
 
 	column criado_em
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: 1f907134-4f58-457b-a896-3b153cbfe66d
 		summarizeBy: none

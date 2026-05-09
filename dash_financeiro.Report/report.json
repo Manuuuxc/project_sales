@@ -1,6 +1,10 @@
 {
-  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":{\"visual\":\"1.8.95\",\"report\":\"2.0.95\",\"page\":\"1.3.95\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":{\"visual\":\"1.8.95\",\"report\":\"2.0.95\",\"page\":\"1.3.95\"}}},\"activeSectionIndex\":1,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
   "layoutOptimization": 0,
+  "publicCustomVisuals": [
+    "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "htmlContent443BE3AD55E043BF878BED274D3A6865"
+  ],
   "resourcePackages": [
     {
       "resourcePackage": {
@@ -20,74 +24,653 @@
   "sections": [
     {
       "config": "{}",
-      "displayName": "Página 1",
+      "displayName": "Despesas",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
-      "name": "8587873c0d7224e394a7",
+      "name": "sec_despesas",
+      "ordinal": 2,
       "visualContainers": [
         {
-          "config": "{\"name\":\"22f17a41574b1ad13936\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":458,\"z\":4000,\"width\":890,\"height\":262,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.qtd_despesa\"}],\"Y2\":[{\"queryRef\":\"medidas.qtd_receita\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano\"},\"Name\":\"dim_calendario.Ano\",\"NativeReferenceName\":\"Ano\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa\"},\"Name\":\"medidas.qtd_despesa\",\"NativeReferenceName\":\"qtd_despesa\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita\"},\"Name\":\"medidas.qtd_receita\",\"NativeReferenceName\":\"qtd_receita\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"v087e29f6a3564ef2ab2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":64,\"z\":10000,\"width\":220,\"height\":74,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.Ano\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano\"},\"Name\":\"dim_calendario.Ano\",\"NativeReferenceName\":\"Ano\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
           "filters": "[]",
-          "height": 262.00,
-          "width": 890.00,
-          "x": 0.00,
-          "y": 458.00,
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 64.00,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"v2117dd56792a4f698d8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":400,\"z\":14000,\"width\":220,\"height\":74,\"tabOrder\":14000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"fat_lancamentos_financeiros.tipo\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fat_lancamentos_financeiros\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"tipo\"},\"Name\":\"fat_lancamentos_financeiros.tipo\",\"NativeReferenceName\":\"tipo\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 400.00,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"v2fe0a811314244e8b24\",\"layouts\":[{\"id\":0,\"position\":{\"x\":710,\"y\":410,\"z\":9000,\"width\":310,\"height\":270,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fat_lancamentos_financeiros.data_lancamento\"},{\"queryRef\":\"fat_lancamentos_financeiros.descricao\"},{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true},{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true},{\"queryRef\":\"fat_lancamentos_financeiros.valor\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fat_lancamentos_financeiros\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"data_lancamento\"},\"Name\":\"fat_lancamentos_financeiros.data_lancamento\",\"NativeReferenceName\":\"data_lancamento\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"descricao\"},\"Name\":\"fat_lancamentos_financeiros.descricao\",\"NativeReferenceName\":\"descricao\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"valor\"},\"Name\":\"fat_lancamentos_financeiros.valor\",\"NativeReferenceName\":\"valor\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"valor\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 270.00,
+          "width": 310.00,
+          "x": 710.00,
+          "y": 410.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"v3a5cfecfa59c411999e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":770,\"y\":66,\"z\":4000,\"width\":230,\"height\":92,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Valor Medio por Lancamento\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Valor Medio por Lancamento\"},\"Name\":\"medidas.Valor Medio por Lancamento\",\"NativeReferenceName\":\"Valor Medio por Lancamento\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Valor Medio por Lancamento\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 770.00,
+          "y": 66.00,
           "z": 4000.00
         },
         {
-          "config": "{\"name\":\"847941f0701cbcad09b1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":700,\"y\":0,\"z\":2000,\"width\":380,\"height\":168,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.vlr_lb\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"vlr_lb\"},\"Name\":\"medidas.vlr_lb\",\"NativeReferenceName\":\"vlr_lb\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"vlr_lb\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"v5815a3f7b35542ce851\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":10,\"z\":0,\"width\":1240,\"height\":42,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pageNavigator\",\"drillFilterOtherVisuals\":true}}",
           "filters": "[]",
-          "height": 168.00,
-          "width": 380.00,
-          "x": 700.00,
-          "y": 0.00,
-          "z": 2000.00
-        },
-        {
-          "config": "{\"name\":\"a4332683e0453e75c8b9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":336,\"y\":0,\"z\":0,\"width\":364,\"height\":168,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.qtd_receita\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita\"},\"Name\":\"medidas.qtd_receita\",\"NativeReferenceName\":\"qtd_receita\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
-          "filters": "[]",
-          "height": 168.00,
-          "width": 364.00,
-          "x": 336.00,
-          "y": 0.00,
+          "height": 42.00,
+          "width": 1240.00,
+          "x": 20.00,
+          "y": 10.00,
           "z": 0.00
         },
         {
-          "config": "{\"name\":\"aae2eed322782fd67b7d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":370,\"height\":168,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.qtd_despesa\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa\"},\"Name\":\"medidas.qtd_despesa\",\"NativeReferenceName\":\"qtd_despesa\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"v673fd3896868484084d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":390,\"y\":410,\"z\":8000,\"width\":300,\"height\":270,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Despesa Total\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
           "filters": "[]",
-          "height": 168.00,
-          "width": 370.00,
-          "x": 0.00,
-          "y": 0.00,
+          "height": 270.00,
+          "width": 300.00,
+          "x": 390.00,
+          "y": 410.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"v67b7a6570d184174b56\",\"layouts\":[{\"id\":0,\"position\":{\"x\":270,\"y\":66,\"z\":2000,\"width\":230,\"height\":92,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Despesa Mes Anterior\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Mes Anterior\"},\"Name\":\"medidas.Despesa Mes Anterior\",\"NativeReferenceName\":\"Despesa Mes Anterior\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Mes Anterior\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 270.00,
+          "y": 66.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"v72ecdf69c70d44c2a04\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":176,\"z\":6000,\"width\":500,\"height\":210,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Despesa Acumulada\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Acumulada\"},\"Name\":\"medidas.Despesa Acumulada\",\"NativeReferenceName\":\"Despesa Acumulada\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 210.00,
+          "width": 500.00,
+          "x": 520.00,
+          "y": 176.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"v770edbaeee8e4f38907\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":316,\"z\":13000,\"width\":220,\"height\":74,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 316.00,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"vbc116e5c49cd47f0b34\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":148,\"z\":11000,\"width\":220,\"height\":74,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.Mes Nome\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Mes Nome\"},\"Name\":\"dim_calendario.Mes Nome\",\"NativeReferenceName\":\"Mes Nome\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 148.00,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"vcaaf5e871ef54891950\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":66,\"z\":1000,\"width\":230,\"height\":92,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Despesa Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 20.00,
+          "y": 66.00,
           "z": 1000.00
         },
         {
-          "config": "{\"name\":\"bb093d679c21822c68fc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":168,\"z\":3000,\"width\":370,\"height\":174,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.%margem_lb\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"%_margem_lb\"},\"Name\":\"medidas.%margem_lb\",\"NativeReferenceName\":\"%_margem_lb\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"%_margem_lb\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"vccb313faabc64bd6b68\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":410,\"z\":7000,\"width\":350,\"height\":270,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Despesa Total\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
           "filters": "[]",
-          "height": 174.00,
-          "width": 370.00,
-          "x": 0.00,
-          "y": 168.00,
+          "height": 270.00,
+          "width": 350.00,
+          "x": 20.00,
+          "y": 410.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"vd07bab6a665549d7932\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":66,\"z\":3000,\"width\":230,\"height\":92,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Variacao Despesa % vs Mes Anterior\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Variacao Despesa % vs Mes Anterior\"},\"Name\":\"medidas.Variacao Despesa % vs Mes Anterior\",\"NativeReferenceName\":\"Variacao Despesa % vs Mes Anterior\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Variacao Despesa % vs Mes Anterior\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 520.00,
+          "y": 66.00,
           "z": 3000.00
         },
         {
-          "config": "{\"name\":\"de2333047162a56a3e4f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":947.5,\"y\":167.5,\"z\":5000,\"width\":332.5,\"height\":212.5,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"medidas.%_receita\"}],\"Category\":[{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"%_receita\"},\"Name\":\"medidas.%_receita\",\"NativeReferenceName\":\"%_receita\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"%_receita\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"ve75a17de61dd4d4d9dd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":176,\"z\":5000,\"width\":480,\"height\":210,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Despesa Total\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
           "filters": "[]",
-          "height": 212.50,
-          "width": 332.50,
-          "x": 947.50,
-          "y": 167.50,
+          "height": 210.00,
+          "width": 480.00,
+          "x": 20.00,
+          "y": 176.00,
           "z": 5000.00
         },
         {
-          "config": "{\"name\":\"eec880accac7e9fb6797\",\"layouts\":[{\"id\":0,\"position\":{\"x\":728,\"y\":234,\"z\":6000,\"width\":190,\"height\":186,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.qtd_receita_YTD\"},{\"queryRef\":\"medidas.qtd_despesa_YTD\"},{\"queryRef\":\"medidas.qtd_saldo_YTD\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita_YTD\"},\"Name\":\"medidas.qtd_receita_YTD\",\"NativeReferenceName\":\"qtd_receita_YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa_YTD\"},\"Name\":\"medidas.qtd_despesa_YTD\",\"NativeReferenceName\":\"qtd_despesa_YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_saldo_YTD\"},\"Name\":\"medidas.qtd_saldo_YTD\",\"NativeReferenceName\":\"qtd_saldo_YTD\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita_YTD\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"ved9fedce0afe45c0ac8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":232,\"z\":12000,\"width\":220,\"height\":74,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
           "filters": "[]",
-          "height": 186.00,
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 232.00,
+          "z": 12000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Detalhamento",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "sec_detalhamento",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"v2b0ee619278348a5bd5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":850,\"y\":66,\"z\":5000,\"width\":410,\"height\":74,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"fat_lancamentos_financeiros.descricao\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fat_lancamentos_financeiros\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"descricao\"},\"Name\":\"fat_lancamentos_financeiros.descricao\",\"NativeReferenceName\":\"descricao\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 410.00,
+          "x": 850.00,
+          "y": 66.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"v8ceb3aeec59e462cab3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":66,\"z\":4000,\"width\":190,\"height\":74,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
           "width": 190.00,
-          "x": 728.00,
-          "y": 234.00,
+          "x": 640.00,
+          "y": 66.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"v92e7c6585af94aca946\",\"layouts\":[{\"id\":0,\"position\":{\"x\":430,\"y\":66,\"z\":3000,\"width\":190,\"height\":74,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 190.00,
+          "x": 430.00,
+          "y": 66.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"va3cf90d2d86f45e68ac\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":162,\"z\":6000,\"width\":1240,\"height\":520,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fat_lancamentos_financeiros.id\"},{\"queryRef\":\"fat_lancamentos_financeiros.data_lancamento\"},{\"queryRef\":\"fat_lancamentos_financeiros.tipo\"},{\"queryRef\":\"fat_lancamentos_financeiros.descricao\"},{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true},{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true},{\"queryRef\":\"fat_lancamentos_financeiros.valor\"},{\"queryRef\":\"fat_lancamentos_financeiros.observacao\"},{\"queryRef\":\"fat_lancamentos_financeiros.criado_em\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fat_lancamentos_financeiros\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"id\"},\"Name\":\"fat_lancamentos_financeiros.id\",\"NativeReferenceName\":\"id\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"data_lancamento\"},\"Name\":\"fat_lancamentos_financeiros.data_lancamento\",\"NativeReferenceName\":\"data_lancamento\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"tipo\"},\"Name\":\"fat_lancamentos_financeiros.tipo\",\"NativeReferenceName\":\"tipo\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"descricao\"},\"Name\":\"fat_lancamentos_financeiros.descricao\",\"NativeReferenceName\":\"descricao\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"valor\"},\"Name\":\"fat_lancamentos_financeiros.valor\",\"NativeReferenceName\":\"valor\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"observacao\"},\"Name\":\"fat_lancamentos_financeiros.observacao\",\"NativeReferenceName\":\"observacao\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"criado_em\"},\"Name\":\"fat_lancamentos_financeiros.criado_em\",\"NativeReferenceName\":\"criado_em\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"data_lancamento\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 520.00,
+          "width": 1240.00,
+          "x": 20.00,
+          "y": 162.00,
           "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"va4ef001161614e8f9c0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":230,\"y\":66,\"z\":2000,\"width\":180,\"height\":74,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"fat_lancamentos_financeiros.tipo\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fat_lancamentos_financeiros\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"tipo\"},\"Name\":\"fat_lancamentos_financeiros.tipo\",\"NativeReferenceName\":\"tipo\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 180.00,
+          "x": 230.00,
+          "y": 66.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"vb29ef8f27ec848508ab\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":10,\"z\":0,\"width\":1240,\"height\":42,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pageNavigator\",\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 42.00,
+          "width": 1240.00,
+          "x": 20.00,
+          "y": 10.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"vfde585a6df0b4f70b0b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":66,\"z\":1000,\"width\":190,\"height\":74,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.Data\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Data\"},\"Name\":\"dim_calendario.Data\",\"NativeReferenceName\":\"Data\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 190.00,
+          "x": 20.00,
+          "y": 66.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Receitas",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "sec_receitas",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"v12424c990e674bd0bff\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":66,\"z\":1000,\"width\":230,\"height\":92,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Receita Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 20.00,
+          "y": 66.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"v1f3bcdc41a5743908f2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":390,\"y\":410,\"z\":8000,\"width\":300,\"height\":270,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Receita Total\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 270.00,
+          "width": 300.00,
+          "x": 390.00,
+          "y": 410.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"v2d1d8ab006484202801\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":176,\"z\":5000,\"width\":480,\"height\":210,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Receita Total\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 210.00,
+          "width": 480.00,
+          "x": 20.00,
+          "y": 176.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"v2f9b0c85f86949ffa1b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":64,\"z\":10000,\"width\":220,\"height\":74,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.Ano\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano\"},\"Name\":\"dim_calendario.Ano\",\"NativeReferenceName\":\"Ano\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 64.00,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"v41d9b0e8dfed48bd88a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":10,\"z\":0,\"width\":1240,\"height\":42,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pageNavigator\",\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 42.00,
+          "width": 1240.00,
+          "x": 20.00,
+          "y": 10.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"v4bf88cac47f44da0b8f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":66,\"z\":3000,\"width\":230,\"height\":92,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Variacao Receita % vs Mes Anterior\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Variacao Receita % vs Mes Anterior\"},\"Name\":\"medidas.Variacao Receita % vs Mes Anterior\",\"NativeReferenceName\":\"Variacao Receita % vs Mes Anterior\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Variacao Receita % vs Mes Anterior\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 520.00,
+          "y": 66.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"v64c48c01472e4bd39cd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":410,\"z\":7000,\"width\":350,\"height\":270,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Receita Total\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 270.00,
+          "width": 350.00,
+          "x": 20.00,
+          "y": 410.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"v65d43fc085794a7eb1c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":316,\"z\":13000,\"width\":220,\"height\":74,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 316.00,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"v85bedaa0312a4b7b934\",\"layouts\":[{\"id\":0,\"position\":{\"x\":710,\"y\":410,\"z\":9000,\"width\":310,\"height\":270,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fat_lancamentos_financeiros.data_lancamento\"},{\"queryRef\":\"fat_lancamentos_financeiros.descricao\"},{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true},{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true},{\"queryRef\":\"fat_lancamentos_financeiros.valor\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fat_lancamentos_financeiros\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"data_lancamento\"},\"Name\":\"fat_lancamentos_financeiros.data_lancamento\",\"NativeReferenceName\":\"data_lancamento\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"descricao\"},\"Name\":\"fat_lancamentos_financeiros.descricao\",\"NativeReferenceName\":\"descricao\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"valor\"},\"Name\":\"fat_lancamentos_financeiros.valor\",\"NativeReferenceName\":\"valor\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"valor\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 270.00,
+          "width": 310.00,
+          "x": 710.00,
+          "y": 410.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"v92d873d57f544179b95\",\"layouts\":[{\"id\":0,\"position\":{\"x\":270,\"y\":66,\"z\":2000,\"width\":230,\"height\":92,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Receita Mes Anterior\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Mes Anterior\"},\"Name\":\"medidas.Receita Mes Anterior\",\"NativeReferenceName\":\"Receita Mes Anterior\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Mes Anterior\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 270.00,
+          "y": 66.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"vb0aafda6e8e44e7aaf8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":148,\"z\":11000,\"width\":220,\"height\":74,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.Mes Nome\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Mes Nome\"},\"Name\":\"dim_calendario.Mes Nome\",\"NativeReferenceName\":\"Mes Nome\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 148.00,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"vc924f0ccf50c469bbd6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":400,\"z\":14000,\"width\":220,\"height\":74,\"tabOrder\":14000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"fat_lancamentos_financeiros.tipo\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fat_lancamentos_financeiros\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"tipo\"},\"Name\":\"fat_lancamentos_financeiros.tipo\",\"NativeReferenceName\":\"tipo\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 400.00,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"vcb071f751ba14e148f4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":770,\"y\":66,\"z\":4000,\"width\":230,\"height\":92,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Ticket Medio\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Ticket Medio\"},\"Name\":\"medidas.Ticket Medio\",\"NativeReferenceName\":\"Ticket Medio\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Ticket Medio\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 770.00,
+          "y": 66.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"vcb541d375b2c467ea45\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":176,\"z\":6000,\"width\":500,\"height\":210,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Receita Acumulada\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Acumulada\"},\"Name\":\"medidas.Receita Acumulada\",\"NativeReferenceName\":\"Receita Acumulada\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 210.00,
+          "width": 500.00,
+          "x": 520.00,
+          "y": 176.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"vd28a759e422e49eaace\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":232,\"z\":12000,\"width\":220,\"height\":74,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 232.00,
+          "z": 12000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Resultado Financeiro",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "sec_resultado",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"v15ff8abcf0dd45f68fa\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":10,\"z\":0,\"width\":1240,\"height\":42,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pageNavigator\",\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 42.00,
+          "width": 1240.00,
+          "x": 20.00,
+          "y": 10.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"v20b672d8dce44f958de\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":410,\"z\":7000,\"width\":500,\"height\":270,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Resultado Acumulado\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado Acumulado\"},\"Name\":\"medidas.Resultado Acumulado\",\"NativeReferenceName\":\"Resultado Acumulado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 270.00,
+          "width": 500.00,
+          "x": 20.00,
+          "y": 410.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"v239db608bca142dc812\",\"layouts\":[{\"id\":0,\"position\":{\"x\":270,\"y\":66,\"z\":2000,\"width\":230,\"height\":92,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Resultado Mes Anterior\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado Mes Anterior\"},\"Name\":\"medidas.Resultado Mes Anterior\",\"NativeReferenceName\":\"Resultado Mes Anterior\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado Mes Anterior\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 270.00,
+          "y": 66.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"v250d50bfce2146ce83c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":66,\"z\":1000,\"width\":230,\"height\":92,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Resultado\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 20.00,
+          "y": 66.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"v2a4328fe6efa4e78a23\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":176,\"z\":5000,\"width\":500,\"height\":210,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 210.00,
+          "width": 500.00,
+          "x": 20.00,
+          "y": 176.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"v46dbcb2caa554a9a855\",\"layouts\":[{\"id\":0,\"position\":{\"x\":770,\"y\":66,\"z\":4000,\"width\":230,\"height\":92,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 770.00,
+          "y": 66.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"v5a6ae5c169884b158de\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":66,\"z\":3000,\"width\":230,\"height\":92,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Variacao Resultado % vs Mes Anterior\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Variacao Resultado % vs Mes Anterior\"},\"Name\":\"medidas.Variacao Resultado % vs Mes Anterior\",\"NativeReferenceName\":\"Variacao Resultado % vs Mes Anterior\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Variacao Resultado % vs Mes Anterior\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 230.00,
+          "x": 520.00,
+          "y": 66.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"v6405eeb9ad02471c9e8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":540,\"y\":410,\"z\":8000,\"width\":480,\"height\":270,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Margem de Resultado %\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 270.00,
+          "width": 480.00,
+          "x": 540.00,
+          "y": 410.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"v689f6458e1694196acd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":316,\"z\":12000,\"width\":220,\"height\":74,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 316.00,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"v824704197ddf4268b4f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":64,\"z\":9000,\"width\":220,\"height\":74,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.Ano\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano\"},\"Name\":\"dim_calendario.Ano\",\"NativeReferenceName\":\"Ano\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 64.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"va06db90c8a8d4a749d7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":400,\"z\":13000,\"width\":220,\"height\":74,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"fat_lancamentos_financeiros.tipo\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fat_lancamentos_financeiros\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"tipo\"},\"Name\":\"fat_lancamentos_financeiros.tipo\",\"NativeReferenceName\":\"tipo\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 400.00,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"vab93e0558a094f8b815\",\"layouts\":[{\"id\":0,\"position\":{\"x\":540,\"y\":176,\"z\":6000,\"width\":480,\"height\":210,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"waterfallChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Resultado\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 210.00,
+          "width": 480.00,
+          "x": 540.00,
+          "y": 176.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"vaf46fde2611245f9b54\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":232,\"z\":11000,\"width\":220,\"height\":74,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 232.00,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"vbf04112ff8e84ebdbed\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":148,\"z\":10000,\"width\":220,\"height\":74,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.Mes Nome\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Mes Nome\"},\"Name\":\"dim_calendario.Mes Nome\",\"NativeReferenceName\":\"Mes Nome\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 148.00,
+          "z": 10000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Visao Executiva",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "sec_visao_executiva",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"v127bef17c33948908ae\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":316,\"z\":13000,\"width\":220,\"height\":74,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 316.00,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"v48df3fe131264547a95\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":400,\"z\":14000,\"width\":220,\"height\":74,\"tabOrder\":14000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"fat_lancamentos_financeiros.tipo\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fat_lancamentos_financeiros\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"tipo\"},\"Name\":\"fat_lancamentos_financeiros.tipo\",\"NativeReferenceName\":\"tipo\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 400.00,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"v5a1dd83ff0934aeea1d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":148,\"z\":11000,\"width\":220,\"height\":74,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.Mes Nome\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Mes Nome\"},\"Name\":\"dim_calendario.Mes Nome\",\"NativeReferenceName\":\"Mes Nome\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 148.00,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"v600961c57bd54e9fbbe\",\"layouts\":[{\"id\":0,\"position\":{\"x\":420,\"y\":66,\"z\":3000,\"width\":184,\"height\":92,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Resultado\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 184.00,
+          "x": 420.00,
+          "y": 66.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"v6e2b1530916148c3846\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":176,\"z\":6000,\"width\":650,\"height\":226,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 226.00,
+          "width": 650.00,
+          "x": 20.00,
+          "y": 176.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"v74ad59da1475414fb16\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":64,\"z\":10000,\"width\":220,\"height\":74,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.Ano\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano\"},\"Name\":\"dim_calendario.Ano\",\"NativeReferenceName\":\"Ano\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 64.00,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"v7b9cd80e60064364aa2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":620,\"y\":66,\"z\":4000,\"width\":184,\"height\":92,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 184.00,
+          "x": 620.00,
+          "y": 66.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"v8c3353dfb2c24e70895\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":424,\"z\":8000,\"width\":480,\"height\":256,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Despesa Total\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 256.00,
+          "width": 480.00,
+          "x": 20.00,
+          "y": 424.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"v9133c83b5f48498c915\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":424,\"z\":9000,\"width\":500,\"height\":256,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Receita Total\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 256.00,
+          "width": 500.00,
+          "x": 520.00,
+          "y": 424.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"v9dbdadabcb414e2aa9a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":10,\"z\":0,\"width\":1240,\"height\":42,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pageNavigator\",\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 42.00,
+          "width": 1240.00,
+          "x": 20.00,
+          "y": 10.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"vb124965b8d3c42a9acd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":66,\"z\":1000,\"width\":184,\"height\":92,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Receita Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 184.00,
+          "x": 20.00,
+          "y": 66.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"vd35787ea6a51405785a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":690,\"y\":176,\"z\":7000,\"width\":330,\"height\":226,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano Mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.Resultado\"}],\"Tooltips\":[{\"queryRef\":\"medidas.Receita Total\"},{\"queryRef\":\"medidas.Despesa Total\"},{\"queryRef\":\"medidas.Resultado\"},{\"queryRef\":\"medidas.Margem de Resultado %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"},\"Name\":\"dim_calendario.Ano Mes\",\"NativeReferenceName\":\"Ano Mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Resultado\"},\"Name\":\"medidas.Resultado\",\"NativeReferenceName\":\"Resultado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Receita Total\"},\"Name\":\"medidas.Receita Total\",\"NativeReferenceName\":\"Receita Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem de Resultado %\"},\"Name\":\"medidas.Margem de Resultado %\",\"NativeReferenceName\":\"Margem de Resultado %\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano Mes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 226.00,
+          "width": 330.00,
+          "x": 690.00,
+          "y": 176.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"vd73536fc2f494c4eb44\",\"layouts\":[{\"id\":0,\"position\":{\"x\":220,\"y\":66,\"z\":2000,\"width\":184,\"height\":92,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Despesa Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"},\"Name\":\"medidas.Despesa Total\",\"NativeReferenceName\":\"Despesa Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Despesa Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 184.00,
+          "x": 220.00,
+          "y": 66.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"ve5ae253a8cf349818fb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":820,\"y\":66,\"z\":5000,\"width\":184,\"height\":92,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.Total de Lancamentos\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total de Lancamentos\"},\"Name\":\"medidas.Total de Lancamentos\",\"NativeReferenceName\":\"Total de Lancamentos\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total de Lancamentos\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 92.00,
+          "width": 184.00,
+          "x": 820.00,
+          "y": 66.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"veed4d389c70f49cb94e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040,\"y\":232,\"z\":12000,\"width\":220,\"height\":74,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_categoria.nome_categoria\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_categoria\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nome_categoria\"},\"Name\":\"dim_categoria.nome_categoria\",\"NativeReferenceName\":\"nome_categoria\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 74.00,
+          "width": 220.00,
+          "x": 1040.00,
+          "y": 232.00,
+          "z": 12000.00
         }
       ],
       "width": 1280.00
