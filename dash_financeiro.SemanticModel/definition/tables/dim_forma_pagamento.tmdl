@@ -1,0 +1,59 @@
+table dim_forma_pagamento
+	lineageTag: 9e531235-3235-4133-8645-23938918ae67
+
+	column id_forma_pagamento
+		dataType: int64
+		formatString: 0
+		lineageTag: 82dbe771-e296-4594-82bd-bd2b73fb9f48
+		summarizeBy: none
+		sourceColumn: id_forma_pagamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column forma
+		dataType: string
+		lineageTag: 848bdd49-e556-4170-9fe1-c1bd3129e075
+		summarizeBy: none
+		sourceColumn: forma
+
+		annotation SummarizationSetBy = Automatic
+
+	column descricao
+		dataType: string
+		lineageTag: 25be097a-1c44-43a4-94fd-fcd5596c1e4e
+		summarizeBy: none
+		sourceColumn: descricao
+
+		annotation SummarizationSetBy = Automatic
+
+	column ativo
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fb5ee495-4aeb-4402-8df6-9e5133dcca71
+		summarizeBy: none
+		sourceColumn: ativo
+
+		annotation SummarizationSetBy = Automatic
+
+	column criado_em
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1f907134-4f58-457b-a896-3b153cbfe66d
+		summarizeBy: none
+		sourceColumn: criado_em
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_forma_pagamento = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost", "postgres"),
+				    public_dim_forma_pagamento = Fonte{[Schema="public",Item="dim_forma_pagamento"]}[Data]
+				in
+				    public_dim_forma_pagamento
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

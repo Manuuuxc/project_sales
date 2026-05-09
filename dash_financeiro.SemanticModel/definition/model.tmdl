@@ -1,0 +1,24 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+annotation PBI_QueryOrder = ["fat_lancamentos_financeiros","dim_categoria","dim_forma_pagamento"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table fat_lancamentos_financeiros
+ref table dim_categoria
+ref table dim_forma_pagamento
+ref table dim_calendario
+ref table medidas
+
+ref cultureInfo pt-BR
+

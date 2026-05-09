@@ -1,0 +1,42 @@
+table dim_categoria
+	lineageTag: 6651eaf2-103a-4267-baf6-5d3c0ac543f5
+
+	column id_categoria
+		dataType: int64
+		formatString: 0
+		lineageTag: f5e67a3c-9cba-4b59-9a89-6731ac4db91b
+		summarizeBy: none
+		sourceColumn: id_categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_categoria
+		dataType: string
+		lineageTag: 2635e31c-fd1b-4861-8fc3-d40c3b34b238
+		summarizeBy: none
+		sourceColumn: nome_categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_padrao
+		dataType: string
+		lineageTag: 2f076d8b-2bf5-458d-be99-566518236005
+		summarizeBy: none
+		sourceColumn: tipo_padrao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_categoria = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost", "postgres"),
+				    public_dim_categoria = Fonte{[Schema="public",Item="dim_categoria"]}[Data],
+				    #"Colunas Removidas" = Table.RemoveColumns(public_dim_categoria,{"criada_em"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

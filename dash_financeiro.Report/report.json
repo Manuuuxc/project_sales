@@ -1,0 +1,96 @@
+{
+  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":{\"visual\":\"1.8.95\",\"report\":\"2.0.95\",\"page\":\"1.3.95\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Página 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "8587873c0d7224e394a7",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"22f17a41574b1ad13936\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":458,\"z\":4000,\"width\":890,\"height\":262,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.Ano\",\"active\":true}],\"Y\":[{\"queryRef\":\"medidas.qtd_despesa\"}],\"Y2\":[{\"queryRef\":\"medidas.qtd_receita\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano\"},\"Name\":\"dim_calendario.Ano\",\"NativeReferenceName\":\"Ano\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa\"},\"Name\":\"medidas.qtd_despesa\",\"NativeReferenceName\":\"qtd_despesa\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita\"},\"Name\":\"medidas.qtd_receita\",\"NativeReferenceName\":\"qtd_receita\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 262.00,
+          "width": 890.00,
+          "x": 0.00,
+          "y": 458.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"847941f0701cbcad09b1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":700,\"y\":0,\"z\":2000,\"width\":380,\"height\":168,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.vlr_lb\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"vlr_lb\"},\"Name\":\"medidas.vlr_lb\",\"NativeReferenceName\":\"vlr_lb\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"vlr_lb\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 168.00,
+          "width": 380.00,
+          "x": 700.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"a4332683e0453e75c8b9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":336,\"y\":0,\"z\":0,\"width\":364,\"height\":168,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.qtd_receita\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita\"},\"Name\":\"medidas.qtd_receita\",\"NativeReferenceName\":\"qtd_receita\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 168.00,
+          "width": 364.00,
+          "x": 336.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"aae2eed322782fd67b7d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":370,\"height\":168,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.qtd_despesa\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa\"},\"Name\":\"medidas.qtd_despesa\",\"NativeReferenceName\":\"qtd_despesa\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 168.00,
+          "width": 370.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"bb093d679c21822c68fc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":168,\"z\":3000,\"width\":370,\"height\":174,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.%margem_lb\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"%_margem_lb\"},\"Name\":\"medidas.%margem_lb\",\"NativeReferenceName\":\"%_margem_lb\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"%_margem_lb\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 174.00,
+          "width": 370.00,
+          "x": 0.00,
+          "y": 168.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"de2333047162a56a3e4f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":947.5,\"y\":167.5,\"z\":5000,\"width\":332.5,\"height\":212.5,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"medidas.%_receita\"}],\"Category\":[{\"queryRef\":\"dim_forma_pagamento.forma\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_forma_pagamento\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"%_receita\"},\"Name\":\"medidas.%_receita\",\"NativeReferenceName\":\"%_receita\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"forma\"},\"Name\":\"dim_forma_pagamento.forma\",\"NativeReferenceName\":\"forma\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"%_receita\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 212.50,
+          "width": 332.50,
+          "x": 947.50,
+          "y": 167.50,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"eec880accac7e9fb6797\",\"layouts\":[{\"id\":0,\"position\":{\"x\":728,\"y\":234,\"z\":6000,\"width\":190,\"height\":186,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"medidas.qtd_receita_YTD\"},{\"queryRef\":\"medidas.qtd_despesa_YTD\"},{\"queryRef\":\"medidas.qtd_saldo_YTD\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita_YTD\"},\"Name\":\"medidas.qtd_receita_YTD\",\"NativeReferenceName\":\"qtd_receita_YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_despesa_YTD\"},\"Name\":\"medidas.qtd_despesa_YTD\",\"NativeReferenceName\":\"qtd_despesa_YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_saldo_YTD\"},\"Name\":\"medidas.qtd_saldo_YTD\",\"NativeReferenceName\":\"qtd_saldo_YTD\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"qtd_receita_YTD\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 186.00,
+          "width": 190.00,
+          "x": 728.00,
+          "y": 234.00,
+          "z": 6000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

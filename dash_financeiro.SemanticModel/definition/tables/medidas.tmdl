@@ -1,0 +1,102 @@
+table medidas
+	lineageTag: f7632a55-01ca-4e5f-88f6-3e1d77124588
+
+	measure qtd_receita = ```
+			
+			    CALCULATE
+			            (SUM
+			                (fat_lancamentos_financeiros[valor]), fat_lancamentos_financeiros[tipo] = "RECEITA")
+			```
+		lineageTag: db8ebaf4-b1de-448c-9d10-a49dc074e7f1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure qtd_despesa = ```
+			
+			    CALCULATE
+			            (SUM
+			                (fat_lancamentos_financeiros[valor]), fat_lancamentos_financeiros[tipo] = "DESPESA")
+			```
+		lineageTag: 7ecb3610-a39a-4093-931d-ab49894006e5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure vlr_lb = [qtd_receita] - [qtd_despesa]
+		lineageTag: c0cfd5d2-3d7e-4c89-b986-ba1e5fbfec46
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %_margem_lb = ```
+			
+			 DIVIDE
+			        ([vlr_lb],[qtd_receita],0)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 77b6dc56-73f6-4669-bde4-44a7950dff2e
+
+	measure %_receita = ```
+			
+			DIVIDE(
+			    [qtd_receita],
+			    CALCULATE(
+			        [qtd_receita],
+			        ALL(dim_forma_pagamento)
+			    )
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 340abe5d-b83d-4cc0-82de-dd968547142d
+
+	measure qtd_receita_YTD = ```
+			
+			CALCULATE(
+			    [qtd_receita],
+			    DATESYTD(dim_calendario[Date])
+			)
+			
+			```
+		lineageTag: 070db358-1830-4318-92e0-4d849a9d986a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure qtd_despesa_YTD = ```
+			
+			CALCULATE(
+			    [qtd_despesa],
+			    DATESYTD(dim_calendario[Date])
+			)
+			
+			```
+		lineageTag: f1f2539f-24f8-45bb-83bb-dbd0dafd90fc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure qtd_saldo_YTD = ```
+			
+			[qtd_receita_YTD] - [qtd_despesa_YTD]
+			
+			```
+		lineageTag: 6f6bee33-2796-4395-a41e-b4629f4f9707
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 44edac6d-547a-4d1d-8132-67983c462618
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition medidas = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = d7d7f9dda926409db919b2723823a6d9
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

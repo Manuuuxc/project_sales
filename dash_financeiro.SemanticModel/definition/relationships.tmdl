@@ -1,0 +1,12 @@
+relationship f2dc2864-0d24-e11b-76d6-b274b714a372
+	fromColumn: fat_lancamentos_financeiros.categoria
+	toColumn: dim_categoria.nome_categoria
+
+relationship 273cd43c-db7e-9087-c0ad-4a810119b202
+	fromColumn: fat_lancamentos_financeiros.data_lancamento
+	toColumn: dim_calendario.Date
+
+relationship a904c47d-5654-a544-4860-1a44c3075c5c
+	fromColumn: fat_lancamentos_financeiros.forma_pagamento
+	toColumn: dim_forma_pagamento.forma
+

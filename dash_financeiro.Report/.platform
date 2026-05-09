@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "dash_financeiro"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2408c1f9-0e90-47bd-a6d2-3f790b084859"
+  }
+}

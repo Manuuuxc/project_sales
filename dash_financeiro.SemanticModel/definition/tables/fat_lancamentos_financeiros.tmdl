@@ -1,0 +1,94 @@
+table fat_lancamentos_financeiros
+	lineageTag: db4154a5-0b48-4d00-be82-60ab368adbfc
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 300f4da9-3a7d-457b-aaf4-744668183af9
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo
+		dataType: string
+		lineageTag: 7630fa9f-cf6c-4710-a8d7-00757ff1e37c
+		summarizeBy: none
+		sourceColumn: tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column descricao
+		dataType: string
+		lineageTag: b6fe3014-08d3-4921-ae5c-472adfa96a80
+		summarizeBy: none
+		sourceColumn: descricao
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria
+		dataType: string
+		lineageTag: 3f714824-96b9-495c-9307-357a36ea04fb
+		summarizeBy: none
+		sourceColumn: categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		formatString: 0.00
+		lineageTag: 21a5a881-7e68-4100-b13d-69828a71b5d1
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_lancamento
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 220dd627-9a2c-4a9e-8eb5-f07fd17186ca
+		summarizeBy: none
+		sourceColumn: data_lancamento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column forma_pagamento
+		dataType: string
+		lineageTag: 7738d37c-8fb3-49bf-adf0-292eed3a268e
+		summarizeBy: none
+		sourceColumn: forma_pagamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column observacao
+		dataType: string
+		lineageTag: e09e5daa-bee5-47a5-8000-948edacfdb04
+		summarizeBy: none
+		sourceColumn: observacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column criado_em
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c0417764-8e7b-424d-8b92-a6e65880f7a7
+		summarizeBy: none
+		sourceColumn: criado_em
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fat_lancamentos_financeiros = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost", "postgres"),
+				    public_lancamentos_financeiros = Fonte{[Schema="public",Item="lancamentos_financeiros"]}[Data]
+				in
+				    public_lancamentos_financeiros
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

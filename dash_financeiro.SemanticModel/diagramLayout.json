@@ -1,0 +1,85 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "fat_lancamentos_financeiros",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 391.49322331553191,
+            "y": 0
+          },
+          "nodeIndex": "dim_categoria",
+          "nodeLineageTag": "6651eaf2-103a-4267-baf6-5d3c0ac543f5",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 769.97939608621255,
+            "y": 93.967943929764687
+          },
+          "nodeIndex": "dim_forma_pagamento",
+          "nodeLineageTag": "9e531235-3235-4133-8645-23938918ae67",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 402.37668972520549,
+            "y": 186.82169535811704
+          },
+          "nodeIndex": "dim_calendario",
+          "nodeLineageTag": "1cef096e-ab88-4740-8ef2-b28f7c032660",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1053.9793960862125,
+            "y": 93.41084767905852
+          },
+          "nodeIndex": "medidas",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 89.19259052056951,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}
