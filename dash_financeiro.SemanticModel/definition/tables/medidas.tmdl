@@ -319,7 +319,7 @@ table medidas
 		lineageTag: 35182528-35f4-4c7f-b024-62b952e487c8
 
 	measure 'Texto Variacao Resultado' = ```
-			
+
 			VAR Variacao = [Variacao Resultado % vs Mes Anterior]
 			RETURN
 			    IF (
@@ -331,6 +331,310 @@ table medidas
 			```
 		displayFolder: 04 Indicadores
 		lineageTag: d9a2b610-f159-4d33-8026-c154edec9344
+
+	measure 'Periodo Selecionado Texto' = ```
+			VAR DataMin = MIN ( dim_calendario[Data] )
+			VAR DataMax = MAX ( dim_calendario[Data] )
+			RETURN
+			    IF (
+			        ISBLANK ( DataMin ) || ISBLANK ( DataMax ),
+			        "Periodo nao filtrado",
+			        FORMAT ( DataMin, "dd/mm/yyyy" ) & " - " & FORMAT ( DataMax, "dd/mm/yyyy" )
+			    )
+			```
+		isHidden
+		displayFolder: 05 HTML
+		lineageTag: 0b425f16-cedc-4ff6-8a60-f2a0f50c1f18
+
+	measure 'HTML Header Visao' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#101B2E 0%,#0B1324 62%,#08111F 100%);border:1px solid rgba(148,163,184,.16);box-shadow:0 18px 38px rgba(0,0,0,.28);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC;overflow:hidden;position:relative'>"
+			& "<div style='position:absolute;right:-70px;top:-95px;width:220px;height:220px;border-radius:999px;background:radial-gradient(circle,rgba(56,189,248,.22),rgba(56,189,248,0) 66%)'></div>"
+			& "<div style='font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#38BDF8;font-weight:700'>Finance Executive Suite</div>"
+			& "<div style='margin-top:7px;font-size:26px;line-height:31px;font-weight:700'>Visao Executiva</div>"
+			& "<div style='margin-top:4px;font-size:12px;color:#94A3B8'>Saude financeira consolidada | " & [Periodo Selecionado Texto] & "</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: c3f5d441-366b-452e-92a1-3aa3dd498830
+
+	measure 'HTML Header Receitas' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#10241F 0%,#0B1826 60%,#07111F 100%);border:1px solid rgba(52,211,153,.18);box-shadow:0 18px 38px rgba(0,0,0,.28);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC;overflow:hidden;position:relative'>"
+			& "<div style='position:absolute;right:-70px;top:-95px;width:220px;height:220px;border-radius:999px;background:radial-gradient(circle,rgba(52,211,153,.22),rgba(52,211,153,0) 66%)'></div>"
+			& "<div style='font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#34D399;font-weight:700'>Revenue Intelligence</div>"
+			& "<div style='margin-top:7px;font-size:26px;line-height:31px;font-weight:700'>Receitas</div>"
+			& "<div style='margin-top:4px;font-size:12px;color:#94A3B8'>Entradas, recorrencia e canais de pagamento | " & [Periodo Selecionado Texto] & "</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: f66c657e-f056-423c-ace3-105e808aa8b4
+
+	measure 'HTML Header Despesas' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#2A1218 0%,#151827 62%,#07111F 100%);border:1px solid rgba(248,113,113,.18);box-shadow:0 18px 38px rgba(0,0,0,.28);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC;overflow:hidden;position:relative'>"
+			& "<div style='position:absolute;right:-70px;top:-95px;width:220px;height:220px;border-radius:999px;background:radial-gradient(circle,rgba(248,113,113,.21),rgba(248,113,113,0) 66%)'></div>"
+			& "<div style='font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F87171;font-weight:700'>Cost Control</div>"
+			& "<div style='margin-top:7px;font-size:26px;line-height:31px;font-weight:700'>Despesas</div>"
+			& "<div style='margin-top:4px;font-size:12px;color:#94A3B8'>Gastos, concentracao e maiores impactos | " & [Periodo Selecionado Texto] & "</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 8fd69102-2a15-4ff4-a5a2-b25fc1157593
+
+	measure 'HTML Header Resultado' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#231B10 0%,#101827 58%,#07111F 100%);border:1px solid rgba(245,158,11,.18);box-shadow:0 18px 38px rgba(0,0,0,.28);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC;overflow:hidden;position:relative'>"
+			& "<div style='position:absolute;right:-70px;top:-95px;width:220px;height:220px;border-radius:999px;background:radial-gradient(circle,rgba(245,158,11,.22),rgba(245,158,11,0) 66%)'></div>"
+			& "<div style='font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F59E0B;font-weight:700'>Performance</div>"
+			& "<div style='margin-top:7px;font-size:26px;line-height:31px;font-weight:700'>Resultado Financeiro</div>"
+			& "<div style='margin-top:4px;font-size:12px;color:#94A3B8'>Lucro, margem e evolucao acumulada | " & [Periodo Selecionado Texto] & "</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 11489618-3621-40c4-a690-3a07de73605d
+
+	measure 'HTML Header Detalhamento' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#101B2E 0%,#101827 62%,#07111F 100%);border:1px solid rgba(148,163,184,.16);box-shadow:0 18px 38px rgba(0,0,0,.28);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC;overflow:hidden;position:relative'>"
+			& "<div style='font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#A78BFA;font-weight:700'>Transaction Explorer</div>"
+			& "<div style='margin-top:7px;font-size:26px;line-height:31px;font-weight:700'>Detalhamento</div>"
+			& "<div style='margin-top:4px;font-size:12px;color:#94A3B8'>Consulta granular dos lancamentos | " & [Periodo Selecionado Texto] & "</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 76b2c87f-3666-4f85-9712-5ed803fb35b2
+
+	measure 'HTML KPI Receita' = ```
+			VAR Valor = [Receita Total]
+			VAR Delta = [Variacao Receita % vs Mes Anterior]
+			VAR Positivo = Delta >= 0
+			VAR Cor = IF ( Positivo, "#34D399", "#F87171" )
+			VAR Fundo = IF ( Positivo, "rgba(52,211,153,.14)", "rgba(248,113,113,.14)" )
+			VAR Icone = IF ( Positivo, "&#8593;", "&#8595;" )
+			VAR DeltaTexto = IF ( ISBLANK ( Delta ), "Sem base", FORMAT ( Delta, "+0.0%;-0.0%;0.0%" ) )
+			RETURN
+			    "<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(56,189,248,.18);box-shadow:0 12px 28px rgba(0,0,0,.26);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			    & "<div style='display:flex;align-items:center;justify-content:space-between'><span style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Receita</span><span style='width:28px;height:28px;border-radius:10px;background:rgba(56,189,248,.14);color:#38BDF8;text-align:center;line-height:28px;font-weight:800'>R</span></div>"
+			    & "<div style='margin-top:14px;font-size:27px;line-height:30px;font-weight:750;color:#F8FAFC'>" & FORMAT ( Valor, "R$ #,##0.00" ) & "</div>"
+			    & "<div style='margin-top:12px;display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:" & Fundo & ";color:" & Cor & ";font-size:12px;font-weight:700'>" & Icone & " " & DeltaTexto & "</div>"
+			    & "<div style='margin-top:8px;font-size:11px;color:#64748B'>vs mes anterior</div>"
+			    & "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 3f66bb43-a172-4860-9e67-1e92868af56e
+
+	measure 'HTML KPI Despesa' = ```
+			VAR Valor = [Despesa Total]
+			VAR Delta = [Variacao Despesa % vs Mes Anterior]
+			VAR Favoravel = [Variacao Despesa vs Mes Anterior] <= 0
+			VAR Cor = IF ( Favoravel, "#34D399", "#F87171" )
+			VAR Fundo = IF ( Favoravel, "rgba(52,211,153,.14)", "rgba(248,113,113,.14)" )
+			VAR Icone = IF ( Favoravel, "&#8595;", "&#8593;" )
+			VAR DeltaTexto = IF ( ISBLANK ( Delta ), "Sem base", FORMAT ( Delta, "+0.0%;-0.0%;0.0%" ) )
+			RETURN
+			    "<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(248,113,113,.18);box-shadow:0 12px 28px rgba(0,0,0,.26);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			    & "<div style='display:flex;align-items:center;justify-content:space-between'><span style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Despesa</span><span style='width:28px;height:28px;border-radius:10px;background:rgba(248,113,113,.14);color:#F87171;text-align:center;line-height:28px;font-weight:800'>D</span></div>"
+			    & "<div style='margin-top:14px;font-size:27px;line-height:30px;font-weight:750;color:#F8FAFC'>" & FORMAT ( Valor, "R$ #,##0.00" ) & "</div>"
+			    & "<div style='margin-top:12px;display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:" & Fundo & ";color:" & Cor & ";font-size:12px;font-weight:700'>" & Icone & " " & DeltaTexto & "</div>"
+			    & "<div style='margin-top:8px;font-size:11px;color:#64748B'>controle de gastos</div>"
+			    & "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 71915a8f-8ea9-4b4d-a420-281c9cf184bb
+
+	measure 'HTML KPI Resultado' = ```
+			VAR Valor = [Resultado]
+			VAR Delta = [Variacao Resultado % vs Mes Anterior]
+			VAR Positivo = Valor >= 0
+			VAR Cor = IF ( Positivo, "#34D399", "#F87171" )
+			VAR Fundo = IF ( Positivo, "rgba(52,211,153,.14)", "rgba(248,113,113,.14)" )
+			VAR Icone = IF ( Positivo, "&#8593;", "&#8595;" )
+			VAR DeltaTexto = IF ( ISBLANK ( Delta ), "Sem base", FORMAT ( Delta, "+0.0%;-0.0%;0.0%" ) )
+			RETURN
+			    "<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(52,211,153,.20);box-shadow:0 12px 28px rgba(0,0,0,.26);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			    & "<div style='display:flex;align-items:center;justify-content:space-between'><span style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Resultado</span><span style='width:28px;height:28px;border-radius:10px;background:" & Fundo & ";color:" & Cor & ";text-align:center;line-height:28px;font-weight:800'>" & Icone & "</span></div>"
+			    & "<div style='margin-top:14px;font-size:27px;line-height:30px;font-weight:750;color:" & Cor & "'>" & FORMAT ( Valor, "R$ #,##0.00" ) & "</div>"
+			    & "<div style='margin-top:12px;display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:" & Fundo & ";color:" & Cor & ";font-size:12px;font-weight:700'>" & DeltaTexto & "</div>"
+			    & "<div style='margin-top:8px;font-size:11px;color:#64748B'>performance liquida</div>"
+			    & "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 265b7891-69db-4950-a036-4a3bfbe1d18a
+
+	measure 'HTML KPI Margem' = ```
+			VAR Valor = [Margem de Resultado %]
+			VAR Delta = [Variacao Resultado % vs Mes Anterior]
+			VAR Positivo = Valor >= 0
+			VAR Cor = IF ( Positivo, "#38BDF8", "#F87171" )
+			VAR Fundo = IF ( Positivo, "rgba(56,189,248,.14)", "rgba(248,113,113,.14)" )
+			VAR DeltaTexto = IF ( ISBLANK ( Delta ), "Sem base", FORMAT ( Delta, "+0.0%;-0.0%;0.0%" ) )
+			RETURN
+			    "<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(56,189,248,.18);box-shadow:0 12px 28px rgba(0,0,0,.26);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			    & "<div style='display:flex;align-items:center;justify-content:space-between'><span style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Margem</span><span style='width:28px;height:28px;border-radius:10px;background:rgba(56,189,248,.14);color:#38BDF8;text-align:center;line-height:28px;font-weight:800'>%</span></div>"
+			    & "<div style='margin-top:14px;font-size:31px;line-height:30px;font-weight:750;color:" & Cor & "'>" & FORMAT ( Valor, "0.0%" ) & "</div>"
+			    & "<div style='margin-top:12px;display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:" & Fundo & ";color:" & Cor & ";font-size:12px;font-weight:700'>" & DeltaTexto & "</div>"
+			    & "<div style='margin-top:8px;font-size:11px;color:#64748B'>rentabilidade</div>"
+			    & "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 8b0d601f-fcf8-4f7f-a902-a4422f3e8238
+
+	measure 'HTML KPI Lancamentos' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(167,139,250,.18);box-shadow:0 12px 28px rgba(0,0,0,.26);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			& "<div style='display:flex;align-items:center;justify-content:space-between'><span style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Lancamentos</span><span style='width:28px;height:28px;border-radius:10px;background:rgba(167,139,250,.14);color:#A78BFA;text-align:center;line-height:28px;font-weight:800'>#</span></div>"
+			& "<div style='margin-top:14px;font-size:31px;line-height:30px;font-weight:750;color:#F8FAFC'>" & FORMAT ( [Total de Lancamentos], "#,##0" ) & "</div>"
+			& "<div style='margin-top:12px;display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:rgba(167,139,250,.14);color:#C4B5FD;font-size:12px;font-weight:700'>operacoes</div>"
+			& "<div style='margin-top:8px;font-size:11px;color:#64748B'>volume no periodo</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 24d6efe2-18d4-4e2a-91fc-1887b1eeed55
+
+	measure 'HTML Filter Panel' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:16px;border-radius:18px;background:linear-gradient(180deg,rgba(15,23,42,.96),rgba(8,15,28,.96));border:1px solid rgba(148,163,184,.14);box-shadow:0 18px 38px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			& "<div style='font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#38BDF8;font-weight:800'>Filtros</div>"
+			& "<div style='margin-top:8px;font-size:18px;font-weight:750'>Refine a analise</div>"
+			& "<div style='margin-top:6px;font-size:11px;line-height:16px;color:#94A3B8'>Use os segmentadores para ajustar periodo, categoria, forma de pagamento e tipo.</div>"
+			& "<div style='margin-top:18px;padding:10px 12px;border-radius:12px;background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.14);font-size:11px;color:#BAE6FD'>Para limpar filtros, use o icone de borracha do proprio segmentador.</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: aebf8227-aed1-4da4-9f3d-a9f1c7c6989c
+
+	measure 'HTML Insights Visao' = ```
+			VAR MelhorMes =
+			    COALESCE (
+			        CONCATENATEX (
+			            TOPN ( 1, ALLSELECTED ( dim_calendario[Ano Mes] ), [Resultado], DESC ),
+			            dim_calendario[Ano Mes],
+			            ", "
+			        ),
+			        "-"
+			    )
+			VAR CatReceita =
+			    COALESCE (
+			        CONCATENATEX (
+			            TOPN ( 1, ALLSELECTED ( dim_categoria[nome_categoria] ), [Receita Total], DESC ),
+			            dim_categoria[nome_categoria],
+			            ", "
+			        ),
+			        "-"
+			    )
+			VAR CatDespesa =
+			    COALESCE (
+			        CONCATENATEX (
+			            TOPN ( 1, ALLSELECTED ( dim_categoria[nome_categoria] ), [Despesa Total], DESC ),
+			            dim_categoria[nome_categoria],
+			            ", "
+			        ),
+			        "-"
+			    )
+			VAR Status = IF ( [Resultado] >= 0, "financeiramente saudavel", "em ponto de atencao" )
+			VAR Cor = IF ( [Resultado] >= 0, "#34D399", "#F87171" )
+			RETURN
+			    "<div style='box-sizing:border-box;height:100%;padding:16px 18px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(10,18,32,.98));border:1px solid rgba(148,163,184,.16);box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			    & "<div style='font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#F59E0B;font-weight:800'>Resumo executivo</div>"
+			    & "<div style='margin-top:8px;font-size:18px;line-height:22px;font-weight:750'>O periodo esta <span style='color:" & Cor & "'>" & Status & "</span>.</div>"
+			    & "<div style='margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px'>"
+			    & "<div style='padding:10px;border-radius:12px;background:rgba(148,163,184,.08)'><div style='font-size:10px;color:#94A3B8'>Melhor mes</div><div style='margin-top:4px;font-size:13px;font-weight:700'>" & MelhorMes & "</div></div>"
+			    & "<div style='padding:10px;border-radius:12px;background:rgba(148,163,184,.08)'><div style='font-size:10px;color:#94A3B8'>Margem</div><div style='margin-top:4px;font-size:13px;font-weight:700'>" & FORMAT ( [Margem de Resultado %], "0.0%" ) & "</div></div>"
+			    & "<div style='padding:10px;border-radius:12px;background:rgba(52,211,153,.09)'><div style='font-size:10px;color:#94A3B8'>Top receita</div><div style='margin-top:4px;font-size:13px;font-weight:700'>" & CatReceita & "</div></div>"
+			    & "<div style='padding:10px;border-radius:12px;background:rgba(248,113,113,.09)'><div style='font-size:10px;color:#94A3B8'>Top despesa</div><div style='margin-top:4px;font-size:13px;font-weight:700'>" & CatDespesa & "</div></div>"
+			    & "</div></div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 35c212b1-5eda-4fb1-bc7f-4f81738863d2
+
+	measure 'HTML KPI Receita Anterior' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(52,211,153,.16);box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			& "<div style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Mes anterior</div>"
+			& "<div style='margin-top:15px;font-size:28px;line-height:30px;font-weight:750'>" & FORMAT ( [Receita Mes Anterior], "R$ #,##0.00" ) & "</div>"
+			& "<div style='margin-top:12px;font-size:12px;color:#34D399'>base comparativa de receita</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 6f6a49c6-f9e2-42ee-a05c-45c2807adc08
+
+	measure 'HTML KPI Variacao Receita' = ```
+			VAR Delta = [Variacao Receita % vs Mes Anterior]
+			VAR Positivo = Delta >= 0
+			VAR Cor = IF ( Positivo, "#34D399", "#F87171" )
+			VAR Fundo = IF ( Positivo, "rgba(52,211,153,.14)", "rgba(248,113,113,.14)" )
+			RETURN
+			    "<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(56,189,248,.16);box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			    & "<div style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Variacao receita</div>"
+			    & "<div style='margin-top:15px;font-size:34px;line-height:34px;font-weight:750;color:" & Cor & "'>" & IF ( ISBLANK ( Delta ), "-", FORMAT ( Delta, "+0.0%;-0.0%;0.0%" ) ) & "</div>"
+			    & "<div style='margin-top:12px;display:inline-flex;padding:5px 9px;border-radius:999px;background:" & Fundo & ";color:" & Cor & ";font-size:12px;font-weight:700'>vs mes anterior</div>"
+			    & "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 4d10522c-617e-4fdf-a7f3-57b458285b11
+
+	measure 'HTML KPI Ticket Medio' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(167,139,250,.16);box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			& "<div style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Ticket medio</div>"
+			& "<div style='margin-top:15px;font-size:28px;line-height:30px;font-weight:750;color:#C4B5FD'>" & FORMAT ( [Ticket Medio], "R$ #,##0.00" ) & "</div>"
+			& "<div style='margin-top:12px;font-size:12px;color:#94A3B8'>valor medio por receita</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: e5186d38-e89d-434a-ae44-99fc2a092ad9
+
+	measure 'HTML KPI Despesa Anterior' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(248,113,113,.16);box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			& "<div style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Mes anterior</div>"
+			& "<div style='margin-top:15px;font-size:28px;line-height:30px;font-weight:750'>" & FORMAT ( [Despesa Mes Anterior], "R$ #,##0.00" ) & "</div>"
+			& "<div style='margin-top:12px;font-size:12px;color:#F87171'>base comparativa de despesa</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 8e8af052-229a-45b0-9198-bf9b6eb073bc
+
+	measure 'HTML KPI Variacao Despesa' = ```
+			VAR Delta = [Variacao Despesa % vs Mes Anterior]
+			VAR Favoravel = [Variacao Despesa vs Mes Anterior] <= 0
+			VAR Cor = IF ( Favoravel, "#34D399", "#F87171" )
+			VAR Fundo = IF ( Favoravel, "rgba(52,211,153,.14)", "rgba(248,113,113,.14)" )
+			RETURN
+			    "<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(248,113,113,.16);box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			    & "<div style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Variacao despesa</div>"
+			    & "<div style='margin-top:15px;font-size:34px;line-height:34px;font-weight:750;color:" & Cor & "'>" & IF ( ISBLANK ( Delta ), "-", FORMAT ( Delta, "+0.0%;-0.0%;0.0%" ) ) & "</div>"
+			    & "<div style='margin-top:12px;display:inline-flex;padding:5px 9px;border-radius:999px;background:" & Fundo & ";color:" & Cor & ";font-size:12px;font-weight:700'>menor e melhor</div>"
+			    & "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 386fe9c5-c55e-4089-aaf3-7332755acf56
+
+	measure 'HTML KPI Valor Medio' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(167,139,250,.16);box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			& "<div style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Valor medio</div>"
+			& "<div style='margin-top:15px;font-size:28px;line-height:30px;font-weight:750;color:#C4B5FD'>" & FORMAT ( [Valor Medio por Lancamento], "R$ #,##0.00" ) & "</div>"
+			& "<div style='margin-top:12px;font-size:12px;color:#94A3B8'>media por lancamento</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 7993c2cf-065f-49d6-a9ce-bbfe13fbc6ef
+
+	measure 'HTML KPI Resultado Anterior' = ```
+			"<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(245,158,11,.16);box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			& "<div style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Mes anterior</div>"
+			& "<div style='margin-top:15px;font-size:28px;line-height:30px;font-weight:750'>" & FORMAT ( [Resultado Mes Anterior], "R$ #,##0.00" ) & "</div>"
+			& "<div style='margin-top:12px;font-size:12px;color:#F59E0B'>base comparativa do resultado</div>"
+			& "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 4fc34932-30fd-4d46-8976-316e20c63eec
+
+	measure 'HTML KPI Variacao Resultado' = ```
+			VAR Delta = [Variacao Resultado % vs Mes Anterior]
+			VAR Positivo = [Variacao Resultado vs Mes Anterior] >= 0
+			VAR Cor = IF ( Positivo, "#34D399", "#F87171" )
+			VAR Fundo = IF ( Positivo, "rgba(52,211,153,.14)", "rgba(248,113,113,.14)" )
+			RETURN
+			    "<div style='box-sizing:border-box;height:100%;padding:16px 17px;border-radius:18px;background:linear-gradient(180deg,rgba(17,27,44,.98),rgba(11,18,32,.98));border:1px solid rgba(245,158,11,.16);box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			    & "<div style='font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:#94A3B8;font-weight:700'>Variacao resultado</div>"
+			    & "<div style='margin-top:15px;font-size:34px;line-height:34px;font-weight:750;color:" & Cor & "'>" & IF ( ISBLANK ( Delta ), "-", FORMAT ( Delta, "+0.0%;-0.0%;0.0%" ) ) & "</div>"
+			    & "<div style='margin-top:12px;display:inline-flex;padding:5px 9px;border-radius:999px;background:" & Fundo & ";color:" & Cor & ";font-size:12px;font-weight:700'>vs mes anterior</div>"
+			    & "</div>"
+			```
+		displayFolder: 05 HTML
+		lineageTag: 3bb2237f-889a-4960-8c3a-c37f8866a826
 
 	column Column
 		isHidden
