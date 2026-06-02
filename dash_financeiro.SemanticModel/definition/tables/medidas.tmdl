@@ -701,6 +701,179 @@ table medidas
 		displayFolder: 05 HTML
 		lineageTag: 7f07500b-cf6e-4df2-b351-76da5f4ed8ab
 
+	measure 'HTML Tabela Maiores Receitas' =
+			VAR Linhas =
+			    TOPN (
+			        8,
+			        SELECTCOLUMNS (
+			            FILTER (
+			                fat_lancamentos_financeiros,
+			                fat_lancamentos_financeiros[tipo] = "RECEITA"
+			            ),
+			            "Data", fat_lancamentos_financeiros[data_lancamento],
+			            "Descricao", fat_lancamentos_financeiros[descricao],
+			            "Categoria", fat_lancamentos_financeiros[categoria],
+			            "Forma", fat_lancamentos_financeiros[forma_pagamento],
+			            "Valor", fat_lancamentos_financeiros[valor]
+			        ),
+			        [Valor], DESC,
+			        [Data], DESC
+			    )
+			VAR Corpo =
+			    CONCATENATEX (
+			        Linhas,
+			        "<tr style='border-bottom:1px solid rgba(148,163,184,.10)'>"
+			            & "<td style='padding:9px 10px;color:#94A3B8;white-space:nowrap'>" & FORMAT ( [Data], "dd/mm" ) & "</td>"
+			            & "<td style='padding:9px 10px;color:#F8FAFC;max-width:168px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>" & [Descricao] & "</td>"
+			            & "<td style='padding:9px 10px;color:#CBD5E1;max-width:110px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>" & [Categoria] & "</td>"
+			            & "<td style='padding:9px 10px;text-align:right;color:#22C55E;font-weight:750;white-space:nowrap'>" & FORMAT ( [Valor], "R$ #,##0.00" ) & "</td>"
+			            & "</tr>",
+			        "",
+			        [Valor], DESC
+			    )
+			VAR Vazio =
+			    "<div style='height:100%;display:flex;align-items:center;justify-content:center;color:#64748B;font-size:13px'>Sem receitas para os filtros selecionados</div>"
+			RETURN
+			    "<div style='height:100%;box-sizing:border-box;padding:18px;border-radius:18px;background:#0F1B2D;border:1px solid rgba(255,255,255,.08);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC;overflow:hidden'>"
+			        & "<div style='display:flex;align-items:center;justify-content:space-between;margin-bottom:12px'>"
+			            & "<div style='font-size:15px;font-weight:750'>Maiores Receitas</div>"
+			            & "<div style='font-size:11px;color:#22C55E;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.18);border-radius:999px;padding:5px 9px'>top 8</div>"
+			        & "</div>"
+			        & IF (
+			            ISEMPTY ( Linhas ),
+			            Vazio,
+			            "<div style='height:calc(100% - 42px);overflow:auto;border-radius:12px;background:rgba(6,17,31,.28)'>"
+			                & "<table style='width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed'>"
+			                    & "<thead><tr style='background:#111F33;color:#94A3B8;text-transform:uppercase;font-size:10px;letter-spacing:.08em'>"
+			                        & "<th style='padding:9px 10px;text-align:left;width:44px'>Data</th>"
+			                        & "<th style='padding:9px 10px;text-align:left'>Descricao</th>"
+			                        & "<th style='padding:9px 10px;text-align:left;width:108px'>Categoria</th>"
+			                        & "<th style='padding:9px 10px;text-align:right;width:118px'>Valor</th>"
+			                    & "</tr></thead><tbody>" & Corpo & "</tbody></table></div>"
+			        )
+			    & "</div>"
+		displayFolder: 05 HTML
+		lineageTag: 824a0db2-2b68-4a28-8c08-3a0f65174d99
+
+	measure 'HTML Tabela Maiores Despesas' =
+			VAR Linhas =
+			    TOPN (
+			        8,
+			        SELECTCOLUMNS (
+			            FILTER (
+			                fat_lancamentos_financeiros,
+			                fat_lancamentos_financeiros[tipo] = "DESPESA"
+			            ),
+			            "Data", fat_lancamentos_financeiros[data_lancamento],
+			            "Descricao", fat_lancamentos_financeiros[descricao],
+			            "Categoria", fat_lancamentos_financeiros[categoria],
+			            "Forma", fat_lancamentos_financeiros[forma_pagamento],
+			            "Valor", fat_lancamentos_financeiros[valor]
+			        ),
+			        [Valor], DESC,
+			        [Data], DESC
+			    )
+			VAR Corpo =
+			    CONCATENATEX (
+			        Linhas,
+			        "<tr style='border-bottom:1px solid rgba(148,163,184,.10)'>"
+			            & "<td style='padding:9px 10px;color:#94A3B8;white-space:nowrap'>" & FORMAT ( [Data], "dd/mm" ) & "</td>"
+			            & "<td style='padding:9px 10px;color:#F8FAFC;max-width:168px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>" & [Descricao] & "</td>"
+			            & "<td style='padding:9px 10px;color:#CBD5E1;max-width:110px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>" & [Categoria] & "</td>"
+			            & "<td style='padding:9px 10px;text-align:right;color:#EF4444;font-weight:750;white-space:nowrap'>" & FORMAT ( [Valor], "R$ #,##0.00" ) & "</td>"
+			            & "</tr>",
+			        "",
+			        [Valor], DESC
+			    )
+			VAR Vazio =
+			    "<div style='height:100%;display:flex;align-items:center;justify-content:center;color:#64748B;font-size:13px'>Sem despesas para os filtros selecionados</div>"
+			RETURN
+			    "<div style='height:100%;box-sizing:border-box;padding:18px;border-radius:18px;background:#0F1B2D;border:1px solid rgba(255,255,255,.08);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC;overflow:hidden'>"
+			        & "<div style='display:flex;align-items:center;justify-content:space-between;margin-bottom:12px'>"
+			            & "<div style='font-size:15px;font-weight:750'>Maiores Despesas</div>"
+			            & "<div style='font-size:11px;color:#FCA5A5;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.18);border-radius:999px;padding:5px 9px'>top 8</div>"
+			        & "</div>"
+			        & IF (
+			            ISEMPTY ( Linhas ),
+			            Vazio,
+			            "<div style='height:calc(100% - 42px);overflow:auto;border-radius:12px;background:rgba(6,17,31,.28)'>"
+			                & "<table style='width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed'>"
+			                    & "<thead><tr style='background:#111F33;color:#94A3B8;text-transform:uppercase;font-size:10px;letter-spacing:.08em'>"
+			                        & "<th style='padding:9px 10px;text-align:left;width:44px'>Data</th>"
+			                        & "<th style='padding:9px 10px;text-align:left'>Descricao</th>"
+			                        & "<th style='padding:9px 10px;text-align:left;width:108px'>Categoria</th>"
+			                        & "<th style='padding:9px 10px;text-align:right;width:118px'>Valor</th>"
+			                    & "</tr></thead><tbody>" & Corpo & "</tbody></table></div>"
+			        )
+			    & "</div>"
+		displayFolder: 05 HTML
+		lineageTag: 941d56c2-2929-4fb0-98a6-cb31d7aa3ea8
+
+	measure 'HTML Tabela Detalhamento' =
+			VAR Linhas =
+			    TOPN (
+			        24,
+			        SELECTCOLUMNS (
+			            fat_lancamentos_financeiros,
+			            "Id", fat_lancamentos_financeiros[id],
+			            "Data", fat_lancamentos_financeiros[data_lancamento],
+			            "Tipo", fat_lancamentos_financeiros[tipo],
+			            "Descricao", fat_lancamentos_financeiros[descricao],
+			            "Categoria", fat_lancamentos_financeiros[categoria],
+			            "Forma", fat_lancamentos_financeiros[forma_pagamento],
+			            "Valor", fat_lancamentos_financeiros[valor],
+			            "Obs", fat_lancamentos_financeiros[observacao],
+			            "Criado", fat_lancamentos_financeiros[criado_em]
+			        ),
+			        [Data], DESC,
+			        [Id], DESC
+			    )
+			VAR Corpo =
+			    CONCATENATEX (
+			        Linhas,
+			        VAR CorTipo = IF ( [Tipo] = "RECEITA", "#22C55E", "#EF4444" )
+			        RETURN
+			            "<tr style='border-bottom:1px solid rgba(148,163,184,.10)'>"
+			                & "<td style='padding:10px 12px;color:#64748B;white-space:nowrap'>" & FORMAT ( [Id], "0" ) & "</td>"
+			                & "<td style='padding:10px 12px;color:#CBD5E1;white-space:nowrap'>" & FORMAT ( [Data], "dd/mm/yyyy" ) & "</td>"
+			                & "<td style='padding:10px 12px'><span style='display:inline-flex;padding:4px 8px;border-radius:999px;background:" & IF ( [Tipo] = "RECEITA", "rgba(34,197,94,.12)", "rgba(239,68,68,.12)" ) & ";color:" & CorTipo & ";font-size:11px;font-weight:750'>" & [Tipo] & "</span></td>"
+			                & "<td style='padding:10px 12px;color:#F8FAFC;max-width:330px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>" & [Descricao] & "</td>"
+			                & "<td style='padding:10px 12px;color:#CBD5E1;max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>" & [Categoria] & "</td>"
+			                & "<td style='padding:10px 12px;color:#94A3B8;max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>" & [Forma] & "</td>"
+			                & "<td style='padding:10px 12px;text-align:right;color:" & CorTipo & ";font-weight:750;white-space:nowrap'>" & FORMAT ( [Valor], "R$ #,##0.00" ) & "</td>"
+			                & "<td style='padding:10px 12px;color:#64748B;max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>" & COALESCE ( [Obs], "-" ) & "</td>"
+			            & "</tr>",
+			        "",
+			        [Data], DESC
+			    )
+			VAR Vazio =
+			    "<div style='height:100%;display:flex;align-items:center;justify-content:center;color:#64748B;font-size:14px'>Sem lancamentos para os filtros selecionados</div>"
+			RETURN
+			    "<div style='height:100%;box-sizing:border-box;padding:20px;border-radius:18px;background:#0F1B2D;border:1px solid rgba(255,255,255,.08);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC;overflow:hidden'>"
+			        & "<div style='display:flex;align-items:center;justify-content:space-between;margin-bottom:14px'>"
+			            & "<div><div style='font-size:16px;font-weight:750'>Lancamentos Financeiros</div><div style='margin-top:4px;font-size:12px;color:#94A3B8'>Ultimos 24 registros conforme filtros aplicados</div></div>"
+			            & "<div style='font-size:12px;color:#BAE6FD;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.18);border-radius:999px;padding:6px 10px'>" & FORMAT ( [Total de Lancamentos], "#,##0" ) & " lancamentos</div>"
+			        & "</div>"
+			        & IF (
+			            ISEMPTY ( Linhas ),
+			            Vazio,
+			            "<div style='height:calc(100% - 58px);overflow:auto;border-radius:14px;background:rgba(6,17,31,.30)'>"
+			                & "<table style='width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed'>"
+			                    & "<thead><tr style='background:#111F33;color:#94A3B8;text-transform:uppercase;font-size:10px;letter-spacing:.08em'>"
+			                        & "<th style='padding:10px 12px;text-align:left;width:54px'>ID</th>"
+			                        & "<th style='padding:10px 12px;text-align:left;width:92px'>Data</th>"
+			                        & "<th style='padding:10px 12px;text-align:left;width:94px'>Tipo</th>"
+			                        & "<th style='padding:10px 12px;text-align:left'>Descricao</th>"
+			                        & "<th style='padding:10px 12px;text-align:left;width:150px'>Categoria</th>"
+			                        & "<th style='padding:10px 12px;text-align:left;width:140px'>Forma</th>"
+			                        & "<th style='padding:10px 12px;text-align:right;width:128px'>Valor</th>"
+			                        & "<th style='padding:10px 12px;text-align:left;width:220px'>Observacao</th>"
+			                    & "</tr></thead><tbody>" & Corpo & "</tbody></table></div>"
+			        )
+			    & "</div>"
+		displayFolder: 05 HTML
+		lineageTag: 26f9dcc6-b2da-4b9e-854d-f28aa1668044
+
 	column Column
 		isHidden
 		formatString: 0
