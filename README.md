@@ -27,6 +27,42 @@ O painel responde, de forma direta e visualmente refinada:
 - Medidas DAX para analise base, temporal, acumulada, YTD, variacoes e indicadores.
 - Tabelas HTML para evitar visual vazio/padrao e melhorar acabamento visual.
 
+## Preview do Dashboard
+
+A documentacao esta preparada para receber capturas reais do relatorio na pasta `docs/screenshots`.
+
+Print principal recomendado:
+
+```text
+docs/screenshots/visao-executiva.png
+```
+
+Quando o print for adicionado nesse caminho, ele pode ser exibido diretamente no README com:
+
+```md
+![Preview da Visao Executiva](docs/screenshots/visao-executiva.png)
+```
+
+Sugestao de capturas para portfolio:
+
+- `visao-executiva.png`
+- `receitas.png`
+- `despesas.png`
+- `resultado-financeiro.png`
+- `detalhamento.png`
+
+## Demo Interativa
+
+O projeto ja pode ser aberto localmente pelo arquivo `dash_financeiro.pbip` no Power BI Desktop.
+
+Para disponibilizar uma versao interativa online, publique o relatorio no Power BI Service e adicione aqui o link de acesso:
+
+```md
+[Abrir demo interativa no Power BI](COLE_AQUI_O_LINK_PUBLICADO)
+```
+
+> Importante: use link publico apenas se os dados puderem ser divulgados. Para dados sensiveis, prefira compartilhamento controlado pelo Power BI Service.
+
 ## Stack Utilizada
 
 - Power BI Desktop
