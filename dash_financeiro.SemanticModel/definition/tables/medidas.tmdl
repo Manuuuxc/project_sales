@@ -688,12 +688,37 @@ table medidas
 		lineageTag: e4482188-90ca-45a6-a5a4-5e83863fe20c
 
 	measure 'HTML 1920 Filter Panel' =
-			"<div style='height:100%;box-sizing:border-box;padding:26px 24px;border-radius:22px;background:linear-gradient(180deg,#0F1B2D 0%,#0B1628 100%);border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 55px rgba(0,0,0,.30);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
-			& "<div style='font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#38BDF8;font-weight:800'>Filtros</div>"
-			& "<div style='margin-top:8px;font-size:24px;line-height:28px;font-weight:750'>Refine a analise financeira</div>"
-			& "<div style='margin-top:8px;font-size:13px;line-height:18px;color:#94A3B8'>Periodo, categoria, forma de pagamento e tipo.</div>"
-			& "<div style='margin-top:22px;display:inline-flex;padding:10px 14px;border-radius:999px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.22);color:#BAE6FD;font-size:12px;font-weight:700'>Limpar filtros</div>"
-			& "</div>"
+			VAR FiltrosAtivos =
+			    IF ( ISFILTERED ( dim_calendario[Ano] ), 1, 0 )
+			        + IF ( ISFILTERED ( dim_calendario[Mes Nome] ), 1, 0 )
+			        + IF ( ISFILTERED ( dim_categoria[nome_categoria] ), 1, 0 )
+			        + IF ( ISFILTERED ( dim_forma_pagamento[forma] ), 1, 0 )
+			        + IF ( ISFILTERED ( fat_lancamentos_financeiros[tipo] ), 1, 0 )
+			        + IF ( ISFILTERED ( fat_lancamentos_financeiros[descricao] ), 1, 0 )
+			VAR TextoStatus =
+			    SWITCH (
+			        TRUE (),
+			        FiltrosAtivos = 0, "Todos os dados",
+			        FiltrosAtivos = 1, "1 filtro ativo",
+			        FORMAT ( FiltrosAtivos, "0" ) & " filtros ativos"
+			    )
+			RETURN
+			    "<div style='height:100%;box-sizing:border-box;padding:26px 24px;border-radius:22px;background:linear-gradient(180deg,#0F1B2D 0%,#0B1628 100%);border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 55px rgba(0,0,0,.30);font-family:Segoe UI,Inter,Arial,sans-serif;color:#F8FAFC'>"
+			        & "<div style='font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#38BDF8;font-weight:800'>Filtros</div>"
+			        & "<div style='margin-top:8px;font-size:24px;line-height:28px;font-weight:750'>Contexto da analise</div>"
+			        & "<div style='margin-top:8px;font-size:13px;line-height:18px;color:#94A3B8'>Periodo, categoria, pagamento e tipo.</div>"
+			        & "<div style='margin-top:20px;padding:12px 14px;border-radius:16px;background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.24)'>"
+			            & "<div style='font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#7DD3FC;font-weight:800'>Status</div>"
+			            & "<div style='margin-top:4px;font-size:15px;color:#F8FAFC;font-weight:750'>" & TextoStatus & "</div>"
+			        & "</div>"
+			        & "<div style='margin-top:18px;display:flex;gap:8px;flex-wrap:wrap'>"
+			            & "<span style='padding:7px 10px;border-radius:999px;background:rgba(148,163,184,.10);color:#CBD5E1;font-size:11px;font-weight:700'>Ano</span>"
+			            & "<span style='padding:7px 10px;border-radius:999px;background:rgba(148,163,184,.10);color:#CBD5E1;font-size:11px;font-weight:700'>Mes</span>"
+			            & "<span style='padding:7px 10px;border-radius:999px;background:rgba(148,163,184,.10);color:#CBD5E1;font-size:11px;font-weight:700'>Categoria</span>"
+			            & "<span style='padding:7px 10px;border-radius:999px;background:rgba(148,163,184,.10);color:#CBD5E1;font-size:11px;font-weight:700'>Pagamento</span>"
+			            & "<span style='padding:7px 10px;border-radius:999px;background:rgba(148,163,184,.10);color:#CBD5E1;font-size:11px;font-weight:700'>Tipo</span>"
+			        & "</div>"
+			    & "</div>"
 		displayFolder: 05 HTML
 		lineageTag: c4be22e7-feba-4719-aeee-c11ff96149a7
 
